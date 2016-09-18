@@ -15,8 +15,13 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
+		<% if user_signed_in? %>
+			<%= render 'shared/navigation' %>
+		<% end -%>
 
-	<%= yield %>
+		<div class="container">
+			<%= yield %>
+		</div>
 
 	</body>
 </html>
