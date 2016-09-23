@@ -1,4 +1,3 @@
-h1 Dashboards#dashboard
-p Find me in app/views/dashboards/dashboard.html.slim
-
-p = @user.email
+h1 Dashboard
+- if @user.ceo?
+	= render "ceo"
