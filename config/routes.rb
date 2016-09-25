@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-
-  get 'users/new'
-
-  get 'users/show'
-
-  get 'users/edit'
-
   root 'dashboards#dashboard'
 
   devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout" }

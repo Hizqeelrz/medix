@@ -1,3 +1,43 @@
 h1 Dashboard
 - if @user.ceo?
 	= render "ceo"
+- elsif @user.director_marketing?
+	= render "director_marketing"
+- elsif @user.managing_director?
+	= render "managing_director"
+- elsif @user.marketing_manager?
+	= render "marketing_manager"
+- elsif @user.national_sales_manager?
+	= render "national_sales_manager"
+- elsif @user.sales_manager?
+	= render "sales_manager"
+- elsif @user.area_sales_manager?
+	= render "area_sales_manager"
+- elsif @user.sales_officer?
+	= render "sales_officer"
+- elsif @user.plant_manager?
+	= render "plant_manager"
+- elsif @user.production_manager?
+	= render "production_manager"
+- elsif @user.production_incharge?
+	= render "production_incharge"
+- elsif @user.quality_control_manager?
+	= render "quality_control_manager"
+- elsif @user.quality_control_assistant?
+	= render "quality_control_assistant"
+- elsif @user.head_accountant?
+	= render "head_accountant"
+- elsif @user.assistant_accountant?
+	= render "assistant_accountant"
+- elsif @user.tablet_technician?
+	= render "tablet_technician"
+- elsif @user.syrup_technician?
+	= render "syrup_technician"
+- elsif @user.tablet_coating_technician?
+	= render "tablet_coating_technician"
+- elsif @user.extract_technician?
+	= render "extract_technician"
+- elsif @user.cosmatics_technician?
+	= render "cosmatics_technician"
+- elsif @user.packing_staff?
+	= render "packing_staff"						
