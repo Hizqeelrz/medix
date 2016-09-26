@@ -19,6 +19,11 @@
 #  first_name             :string
 #  last_name              :string
 #  gender                 :integer
+#  nic                    :string
+#  address                :string
+#  city                   :string
+#  state                  :string
+#  dob                    :date
 #
 # Indexes
 #

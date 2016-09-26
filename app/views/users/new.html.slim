@@ -6,6 +6,13 @@ h1 Create User
 	= f.input :first_name
 	= f.input :last_name
 	= f.input :gender, collection: GENDER.map { |k,v| [k.to_s.titleize, v] }
+	= f.input :dob, as: :date, start_year: Date.today.year - 100,
+															end_year: Date.today.year,
+															order: [:day, :month, :year]
+	= f.input :nic
+	= f.input :address
+	= f.input :city
+	= f.input :state
 	= f.input :email
 	= f.input :password
 	= f.input :password_confirmation
