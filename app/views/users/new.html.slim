@@ -13,6 +13,12 @@ h1 Create User
 	= f.input :address
 	= f.input :city
 	= f.input :state
+	= f.input :phone
+	= f.input :mobile
+	= f.input :joining_date, as: :date, start_year: Date.today.year - 25,
+																			end_year: Date.today.year,
+																			order: [:day, :month, :year]
+	= f.input :marital_status, collection: MARITAL_STATUS.map { |k,v| [k.to_s.titleize, v] }
 	= f.input :email
 	= f.input :password
 	= f.input :password_confirmation

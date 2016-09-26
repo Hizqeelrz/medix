@@ -24,11 +24,16 @@
 #  city                   :string
 #  state                  :string
 #  dob                    :date
+#  phone                  :string
+#  mobile                 :string
+#  joining_date           :date
+#  marital_status         :integer
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_gender                (gender)
+#  index_users_on_marital_status        (marital_status)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_role                  (role)
 #
