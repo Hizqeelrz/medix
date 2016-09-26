@@ -16,6 +16,7 @@
 	</head>
 	<body>
 		<% if user_signed_in? %>
+			<%= render 'shared/nav_left' %>
 			<%= render 'shared/navigation' %>
 		<% end -%>
 

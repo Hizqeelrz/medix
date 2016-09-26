@@ -1,2 +1,13 @@
-h1 Users#new
+h2 Users#new
 p Find me in app/views/users/new.html.slim
+
+h1 Create User
+= simple_form_for @user do |f|
+	= f.input :first_name
+	= f.input :last_name
+	= f.input :gender, collection: GENDER.map { |k,v| [k.to_s.titleize, v] }
+	= f.input :email
+	= f.input :password
+	= f.input :password_confirmation
+	= f.input :role, collection: User.roles.keys.map { |role| [role.titleize,role] }
+	= f.button :submit

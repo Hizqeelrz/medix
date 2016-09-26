@@ -11,3 +11,6 @@ PNJAB_CITIES = [ "lahore", "rawalpindi", "faisalabad", "multan", "dera_ismail_kh
 KPK_CITIES = [ "bhakkar", "mianwali", "bannu", "lucky_marwat", "baajor_agency","mardan", "noshehra", "kohat", "para_chanaar", "manshera", "batgram", "muzafar_abad", "haripur_hazara", "bunair", "shangla", "taimer_gran", "butkhaila", "upper_dir", "basham", "sakardu", "gilgit" ]
 
 SINDH_BALOCHISTAN_CITIES = [ "hydrabad", "mirpur_khass", "tando_adam", "badin", "sukkar", "khair_pur", "ghotki", "khasmor", "larkana", "dadu", "jacob_abad", "nawabshah", "noshehro_feroz", "saanhgar", "karachi_city1", "karachi_city2", "karachi_city3" ]
+
+
+GENDER = { male: 0, female: 1 }
