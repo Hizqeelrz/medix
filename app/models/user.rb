@@ -28,12 +28,16 @@
 #  mobile                 :string
 #  joining_date           :date
 #  marital_status         :integer
+#  basic_salary           :integer
+#  qualification          :integer
 #
 # Indexes
 #
+#  index_users_on_basic_salary          (basic_salary)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_gender                (gender)
 #  index_users_on_marital_status        (marital_status)
+#  index_users_on_qualification         (qualification)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_role                  (role)
 #

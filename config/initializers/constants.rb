@@ -16,3 +16,5 @@ SINDH_BALOCHISTAN_CITIES = [ "hydrabad", "mirpur_khass", "tando_adam", "badin", 
 GENDER = { male: 0, female: 1 }
 
 MARITAL_STATUS = { single: 0, married: 1 }
+
+QUALIFICATION = { primary: 0, middle: 1, matric: 2, intermediate: 3, graduation: 4, post_graduation: 5, phd: 6 }
