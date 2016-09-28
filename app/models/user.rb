@@ -30,10 +30,13 @@
 #  marital_status         :integer
 #  basic_salary           :integer
 #  qualification          :integer
+#  boss_id                :integer
+#  job_province           :string
 #
 # Indexes
 #
 #  index_users_on_basic_salary          (basic_salary)
+#  index_users_on_boss_id               (boss_id)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_gender                (gender)
 #  index_users_on_marital_status        (marital_status)
@@ -45,6 +48,9 @@
 class User < ActiveRecord::Base
 
 	enum role: [:ceo, :director_marketing, :managing_director, :marketing_manager, :national_sales_manager, :sales_manager, :area_sales_manager, :sales_officer, :plant_manager, :production_manager, :production_incharge, :quality_control_manager, :quality_control_assistant, :head_accountant, :assistant_accountant, :tablet_technician, :syrup_technician, :tablet_coating_technician, :extract_technician, :cosmatics_technician, :packing_staff]
+
+	belongs_to :boss, class_name: "User"
+	has_many :subordinates, class_name: "User", foreign_key: "boss_id"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

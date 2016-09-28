@@ -17,4 +17,8 @@ h1 Users#index
 			.basic_salary = user.basic_salary
 			.qualification = qualification(user.qualification)
 			.role = user.role
+			.job_province = user.job_province if user.job_province
+			.boss = user.boss.first_name if user.boss
 			.email = user.email
+
+			hr/

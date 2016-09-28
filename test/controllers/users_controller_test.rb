@@ -30,10 +30,13 @@
 #  marital_status         :integer
 #  basic_salary           :integer
 #  qualification          :integer
+#  boss_id                :integer
+#  job_province           :string
 #
 # Indexes
 #
 #  index_users_on_basic_salary          (basic_salary)
+#  index_users_on_boss_id               (boss_id)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_gender                (gender)
 #  index_users_on_marital_status        (marital_status)
