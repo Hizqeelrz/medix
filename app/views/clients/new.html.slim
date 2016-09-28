@@ -1,0 +1,16 @@
+h1 Clients#new
+p Find me in app/views/clients/new.html.slim
+
+= simple_form_for @client do |f|
+	= f.input :name
+	= f.input :phone
+	= f.input :email
+	= f.input :website
+	= f.input :company
+	= f.input :address
+	= f.input :city
+	= f.input :state
+	= f.input :country, collection: ["Pakistan"]
+	= f.button :submit, class: "btn btn-success btn-sm"
+
+br/	

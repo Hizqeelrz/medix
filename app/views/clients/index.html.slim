@@ -1,0 +1,17 @@
+h1 Clients#index
+p Find me in app/views/clients/index.html.slim
+
+= link_to "New", new_client_path
+
+.clients
+	- @clients.each do |client|
+		.client
+			.name = client.name
+			.phone = client.phone
+			.email = client.email
+			.website = client.website
+			.company = client.company
+			.address = client.address
+			.city = client.city
+			.state = client.state
+			.country = client.country
