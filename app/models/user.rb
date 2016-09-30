@@ -32,6 +32,8 @@
 #  qualification          :integer
 #  boss_id                :integer
 #  job_province           :string
+#  job_area               :string
+#  job_city               :string
 #
 # Indexes
 #

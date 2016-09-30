@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928153226) do
+ActiveRecord::Schema.define(version: 20160930152132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "province_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "areas", ["province_id"], name: "index_areas_on_province_id", using: :btree
 
   create_table "asset_categories", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +40,15 @@ ActiveRecord::Schema.define(version: 20160928153226) do
   end
 
   add_index "assets", ["asset_category_id"], name: "index_assets_on_asset_category_id", using: :btree
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["area_id"], name: "index_cities_on_area_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -84,6 +102,12 @@ ActiveRecord::Schema.define(version: 20160928153226) do
 
   add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
 
+  create_table "provinces", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -114,6 +138,8 @@ ActiveRecord::Schema.define(version: 20160928153226) do
     t.integer  "qualification"
     t.integer  "boss_id"
     t.string   "job_province"
+    t.string   "job_area"
+    t.string   "job_city"
   end
 
   add_index "users", ["basic_salary"], name: "index_users_on_basic_salary", using: :btree

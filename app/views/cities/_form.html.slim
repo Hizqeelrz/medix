@@ -1,0 +1,9 @@
+= simple_form_for(@city) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :area_id, collection: City.all.map { |c| [c.name.titleize, c.id] }
+
+  .form-actions
+    = f.button :submit

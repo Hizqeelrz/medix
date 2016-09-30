@@ -6,6 +6,32 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Province.delete_all
+Area.delete_all
+province = ["punjab", "kpk", "sindh_balochistan"]
+area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera_ghazi_khan","rahim_yar_khan","sahiwal","gujranwala","gujrat"]
+area_kpk = ["dera_ismail_khan","peshawar","abbotabad","sawat","gilgit_baltishtan"]
+area_sindh_balochistan = ["hydrabad","sukkar","larkana","nawabshah","karachi"]
+province.each do |p|
+  province = Province.create(name: p)
+  if p == "punjab"
+    area_punjab.each {|a| Area.create(name: a, province_id: province.id)}
+  elsif p == "kpk"
+    area_kpk.each {|a| Area.create(name: a, province_id: province.id)}
+  elsif p == "sindh_balochistan"
+    area_sindh_balochistan.each {|a| Area.create(name: a, province_id: province.id)}
+  end
+end
+
+City.delete_all
+cities = ["lahore","rawalpindi","faisalabad","multan","dera_ismail_khan","sahiwal","gujrat","narowal","sadiqabad","attock","murree","chakwal","bahawalpur","lodhran","rahim_yar_khan","taxila","sargodha","kasur","sheikhu_pura","nankana_sahib","jhang","toba_tek_singh","khoshaab","chinyot","khanewal","muzafar_garh","vehari","layyah","taunsa","raajan_pur","mandi_bahauddin","okara","pakpattan","sialkot","wazirabad","hafizabad","gujranwala","mirpur","jehlum", "bhakkar","mianwali","bannu","lucky_marwat","baajor_agency","mardan","noshehra","kohat","para_chanaar","manshera","batgram","muzafar_abad","haripur_hazara","bunair","shangla","taimer_gran","butkhaila","upper_dir","basham","sakardu","gilgit", "hydrabad","mirpur_khass","tando_adam","badin","sukkhar","khair_pur","ghotki","kashmor","larkana","dadu","jacob_abad","nawabshah","noshehro_feroz","saanhgar","karachi_city1","karachi_city2","karachi_city3"]
+
+cities.each do |c|
+	City.create(name: c)
+end
+
+
+
 User.delete_all
 User.create(first_name: "user1", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4,   email: "user1@medix.com", password: "password", password_confirmation: "password", role: "ceo")
 
