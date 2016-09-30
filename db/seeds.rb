@@ -14,11 +14,12 @@ area_kpk = ["dera_ismail_khan","peshawar","abbotabad","sawat","gilgit_baltishtan
 area_sindh_balochistan = ["hydrabad","sukkar","larkana","nawabshah","karachi"]
 province.each do |p|
   province = Province.create(name: p)
-  if p == "punjab"
+  case p
+  when "punjab"
     area_punjab.each {|a| Area.create(name: a, province_id: province.id)}
-  elsif p == "kpk"
+  when "kpk"
     area_kpk.each {|a| Area.create(name: a, province_id: province.id)}
-  elsif p == "sindh_balochistan"
+  when "sindh_balochistan"
     area_sindh_balochistan.each {|a| Area.create(name: a, province_id: province.id)}
   end
 end

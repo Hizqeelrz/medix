@@ -3,14 +3,7 @@ Rails.application.routes.draw do
   resources :provinces
   resources :cities
   resources :areas
-  get 'clients/index'
-
-  get 'clients/new'
-
-  get 'clients/show'
-
-  get 'clients/edit'
-
+  
   resources :clients
 
   root 'dashboards#dashboard'
