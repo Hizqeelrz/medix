@@ -29,6 +29,20 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def update_areas
+    @areas = Area.where(province_id: params[:province_id]).all
+    respond do |format|
+      format.js
+    end
+  end
+
+  def update_cities
+    @cities = City.where(area_id: params[:area_id]).all
+    respond do |format|
+      format.js
+    end
+  end
+
   private
 
   def user_params

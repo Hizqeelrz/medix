@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   root 'dashboards#dashboard'
 
   devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout" }
-  resources :users
+  resources :users do
+    collection do
+      get "update_areas", as: "update_areas"
+      get "update_cities", as: "update_cities"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

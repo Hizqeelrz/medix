@@ -1,0 +1,1 @@
+$("user_job_city").empty().append("<%= escape_javascript(render @cities) %>")
