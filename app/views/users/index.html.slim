@@ -20,5 +20,5 @@ h1 Users#index
 			.job_province = user.job_province if user.job_province
 			.boss = user.boss.first_name if user.boss
 			.email = user.email
-
+			.link = link_to "More Details", user_path(user)
 			hr/
