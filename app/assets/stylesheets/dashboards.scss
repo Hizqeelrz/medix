@@ -3,10 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .nav-left {
-	position: absolute;
-	top: 52px;
+	position: fixed;
+	top: 0;
 	left: 0;
+	padding-top: 51px;
 	background-color: #cdc;
+	min-height: 100%;
 }
 
 .container {

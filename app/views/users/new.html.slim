@@ -28,5 +28,5 @@ h1 Create User
 	= f.input :job_province, collection: Province.all.map { |p| [p.name.titleize, p.id] }
 	= f.input :job_area, collection: []
 	= f.input :job_city, collection: []
-	= f.association :boss, collection: User.all.map { |u| [u.email, u] }
+	= f.association :boss, collection: User.all.map { |u| [u.email, u.id] }
 	= f.button :submit
