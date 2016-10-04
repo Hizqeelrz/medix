@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user {
+	font-size: 12px;
 	display: inline-block;
 	background-color: #ededed;
 	padding: 20px;
@@ -10,4 +11,12 @@
 	vertical-align: top;
 	margin-bottom: 5px;
 	min-height: 250px;
+	border-bottom: 2px solid #222;
+	transition: all .3s ease-in-out;
+}
+
+.user:hover {
+	border-bottom: 2px solid #F6B352;
+	box-shadow: 0 0 10px #888;
+	transform: scale(1.1);
 }
