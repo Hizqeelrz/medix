@@ -8,6 +8,7 @@
 
 Province.delete_all
 Area.delete_all
+City.delete_all
 province = ["punjab", "kpk", "sindh_balochistan"]
 area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera_ghazi_khan","rahim_yar_khan","sahiwal","gujranwala","gujrat"]
 area_kpk = ["dera_ismail_khan","peshawar","abbotabad","sawat","gilgit_baltishtan"]
@@ -16,21 +17,63 @@ province.each do |p|
   province = Province.create(name: p)
   case p
   when "punjab"
-    area_punjab.each {|a| Area.create(name: a, province_id: province.id)}
+    area_punjab.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      case area
+      when "lahore"
+        ["lahore", "kasur", "sheikhupura", "nankana sahib"].each {|c| City.create(name: c, area_id: area.id)}
+      when "rawalpindi"
+        ["rawalpindi", "attock", "murree", "chakwal", "taxila"].each {|c| City.create(name: c, area_id: area.id)}
+      when "faisalabad"
+        ["faisalabad", "sargodha", "jhang", "toba tek singh", "khoshaab", "chinyot"].each {|c| City.create(name: c, area_id: area.id)}
+      when "multan"
+        ["multan", "khanewal", "muzafar_garh", "vehari"].each {|c| City.create(name: c, area_id: area.id)}
+      when "rahim yar khan"
+        ["rahim yar khan", "sadiqabad", "bahawalpur", "lodhran"].each {|c| City.create(name: c, area_id: area.id)}
+      when "dera ghazi khan"
+        ["dera ghazi khan", "layyah", "taunsa", "raajan pur"].each {|c| City.create(name: c, area_id: area.id)}
+      when "gujranwala"
+        ["gujranwala", "narowal", "sialkot", "wazirabad"].each {|c| City.create(name: c, area_id: area.id)}
+      when "gujrat"
+        ["gujrat", "mandi bahauddin", "jehlum", "mirpur"].each {|c| City.create(name: c, area_id: area.id)}
+      when "sahiwal"
+        ["sahiwal", "okara", "pakpattan", "bahawal nagar"].each {|c| City.create(name: c, area_id: area.id)}
+      end
+    end
   when "kpk"
-    area_kpk.each {|a| Area.create(name: a, province_id: province.id)}
+    area_kpk.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      case a
+      when "peshawar"
+        ["baajor agency", "char sadda", "mardan", "noshehra", "kohat", "para chanaar"].each {|c| City.create(name: c, area_id: area.id)}
+      when "abbotabad"
+        ["manshera", "batgram", "muzafarabad", "haripur hazara"].each {|c| City.create(name: c, area_id: area.id)}
+      when "sawat"
+        ["bunair", "shangla", "taimer gran", "butkhaila", "upper dir"].each {|c| City.create(name: c, area_id: area.id)}
+      when "dera ismail khan"
+        ["bhakkar", "mianwali", "bannu", "lucky marwat"].each {|c| City.create(name: c, area_id: area.id)}
+      when "gilgit baltistan"
+        ["basham", "sakardu", "gilgit"].each {|c| City.create(name: c, area_id: area.id)}
+      end
+    end
   when "sindh_balochistan"
-    area_sindh_balochistan.each {|a| Area.create(name: a, province_id: province.id)}
+    area_sindh_balochistan.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      case a
+      when "hydrabad"
+        ["hydrabad", "mirpur khaas", "tando adam", "badin"].each {|c| City.create(name: c, area_id: area.id)}
+      when "sukkhar"
+        ["sukkhar", "khair pur", "ghotki", "kashmor"].each {|c| City.create(name: c, area_id: area.id)}
+      when "larkana"
+        ["larkana", "dadu", "jacobabad"].each {|c| City.create(name: c, area_id: area.id)}
+      when "nawabshah"
+        ["nawabshah", "noshehro feroz", "saanhgar"].each {|c| City.create(name: c, area_id: area.id)}
+      when "karachi"
+        ["karachi city1", "karachi city2", "karachi city3"].each {|c| City.create(name: c, area_id: area.id)}
+      end
+    end
   end
 end
-
-City.delete_all
-cities = ["lahore","rawalpindi","faisalabad","multan","dera_ismail_khan","sahiwal","gujrat","narowal","sadiqabad","attock","murree","chakwal","bahawalpur","lodhran","rahim_yar_khan","taxila","sargodha","kasur","sheikhu_pura","nankana_sahib","jhang","toba_tek_singh","khoshaab","chinyot","khanewal","muzafar_garh","vehari","layyah","taunsa","raajan_pur","mandi_bahauddin","okara","pakpattan","sialkot","wazirabad","hafizabad","gujranwala","mirpur","jehlum", "bhakkar","mianwali","bannu","lucky_marwat","baajor_agency","mardan","noshehra","kohat","para_chanaar","manshera","batgram","muzafar_abad","haripur_hazara","bunair","shangla","taimer_gran","butkhaila","upper_dir","basham","sakardu","gilgit", "hydrabad","mirpur_khass","tando_adam","badin","sukkhar","khair_pur","ghotki","kashmor","larkana","dadu","jacob_abad","nawabshah","noshehro_feroz","saanhgar","karachi_city1","karachi_city2","karachi_city3"]
-
-cities.each do |c|
-	City.create(name: c)
-end
-
 
 
 User.delete_all
