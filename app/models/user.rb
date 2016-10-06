@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
 	belongs_to :boss, class_name: "User"
 	has_many :subordinates, class_name: "User", foreign_key: "boss_id"
 
-	has_attached_file :image, styles: { original: "600x600", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :image, styles: { original: "600x600#", medium: "300x300#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   # Include default devise modules. Others available are:

@@ -3,9 +3,8 @@ h1 Users#index
 .users
 	- @users.each do |user|
 		.user
-			.first_name = user.first_name
-			.last_name = user.last_name
-			.gender = user_gender(user.gender)
+			.image = image_tag user.image.url(:thumb), class: "img-circle"
+			.name = "#{user.first_name} #{user.last_name}"
 			.phone = user.phone
 			.mobile = user.mobile
 			.role = user.role
