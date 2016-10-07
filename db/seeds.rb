@@ -10,8 +10,8 @@ Province.delete_all
 Area.delete_all
 City.delete_all
 province = ["punjab", "kpk", "sindh_balochistan"]
-area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera_ghazi_khan","rahim_yar_khan","sahiwal","gujranwala","gujrat"]
-area_kpk = ["dera_ismail_khan","peshawar","abbotabad","sawat","gilgit_baltishtan"]
+area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera ghazi khan","rahim yar khan","sahiwal","gujranwala","gujrat"]
+area_kpk = ["dera ismail khan","peshawar","abbotabad","sawat","gilgit baltishtan"]
 area_sindh_balochistan = ["hydrabad","sukkar","larkana","nawabshah","karachi"]
 province.each do |p|
   province = Province.create(name: p)
