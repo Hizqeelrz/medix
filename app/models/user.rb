@@ -34,6 +34,10 @@
 #  job_province           :string
 #  job_area               :string
 #  job_city               :string
+#  image_file_name        :string
+#  image_content_type     :string
+#  image_file_size        :integer
+#  image_updated_at       :datetime
 #
 # Indexes
 #
@@ -53,6 +57,9 @@ class User < ActiveRecord::Base
 
 	belongs_to :boss, class_name: "User"
 	has_many :subordinates, class_name: "User", foreign_key: "boss_id"
+
+	has_attached_file :image, styles: { original: "600x600#", medium: "300x300#", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

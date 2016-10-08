@@ -8,70 +8,138 @@
 
 Province.delete_all
 Area.delete_all
+City.delete_all
 province = ["punjab", "kpk", "sindh_balochistan"]
-area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera_ghazi_khan","rahim_yar_khan","sahiwal","gujranwala","gujrat"]
-area_kpk = ["dera_ismail_khan","peshawar","abbotabad","sawat","gilgit_baltishtan"]
+area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera ghazi khan","rahim yar khan","sahiwal","gujranwala","gujrat"]
+area_kpk = ["dera ismail khan","peshawar","abbotabad","sawat","gilgit baltishtan"]
 area_sindh_balochistan = ["hydrabad","sukkar","larkana","nawabshah","karachi"]
 province.each do |p|
   province = Province.create(name: p)
+  puts "#{province.name} added ======>"
   case p
   when "punjab"
-    area_punjab.each {|a| Area.create(name: a, province_id: province.id)}
+    area_punjab.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      puts "#{area.name} -------"
+      case a
+      when "lahore"
+        ["lahore", "kasur", "sheikhupura", "nankana sahib"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "rawalpindi"
+        ["rawalpindi", "attock", "murree", "chakwal", "taxila"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "faisalabad"
+        ["faisalabad", "sargodha", "jhang", "toba tek singh", "khoshaab", "chinyot"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "multan"
+        ["multan", "khanewal", "muzafar_garh", "vehari"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "rahim yar khan"
+        ["rahim yar khan", "sadiqabad", "bahawalpur", "lodhran"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "dera ghazi khan"
+        ["dera ghazi khan", "layyah", "taunsa", "raajan pur"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "gujranwala"
+        ["gujranwala", "narowal", "sialkot", "wazirabad"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "gujrat"
+        ["gujrat", "mandi bahauddin", "jehlum", "mirpur"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "sahiwal"
+        ["sahiwal", "okara", "pakpattan", "bahawal nagar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      end
+    end
   when "kpk"
-    area_kpk.each {|a| Area.create(name: a, province_id: province.id)}
+    area_kpk.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      puts "#{area.name} added -------"
+      case a
+      when "peshawar"
+        ["baajor agency", "char sadda", "mardan", "noshehra", "kohat", "para chanaar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "abbotabad"
+        ["manshera", "batgram", "muzafarabad", "haripur hazara"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "sawat"
+        ["bunair", "shangla", "taimer gran", "butkhaila", "upper dir"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "dera ismail khan"
+        ["bhakkar", "mianwali", "bannu", "lucky marwat"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "gilgit baltistan"
+        ["basham", "sakardu", "gilgit"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      end
+    end
   when "sindh_balochistan"
-    area_sindh_balochistan.each {|a| Area.create(name: a, province_id: province.id)}
+    area_sindh_balochistan.each do |a|
+      area = Area.create(name: a, province_id: province.id)
+      puts "#{area.name} added -------"
+      case a
+      when "hydrabad"
+        ["hydrabad", "mirpur khaas", "tando adam", "badin"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "sukkhar"
+        ["sukkhar", "khair pur", "ghotki", "kashmor"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "larkana"
+        ["larkana", "dadu", "jacobabad"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "nawabshah"
+        ["nawabshah", "noshehro feroz", "saanhgar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      when "karachi"
+        ["karachi city1", "karachi city2", "karachi city3"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added....."}
+      end
+    end
   end
 end
 
-City.delete_all
-cities = ["lahore","rawalpindi","faisalabad","multan","dera_ismail_khan","sahiwal","gujrat","narowal","sadiqabad","attock","murree","chakwal","bahawalpur","lodhran","rahim_yar_khan","taxila","sargodha","kasur","sheikhu_pura","nankana_sahib","jhang","toba_tek_singh","khoshaab","chinyot","khanewal","muzafar_garh","vehari","layyah","taunsa","raajan_pur","mandi_bahauddin","okara","pakpattan","sialkot","wazirabad","hafizabad","gujranwala","mirpur","jehlum", "bhakkar","mianwali","bannu","lucky_marwat","baajor_agency","mardan","noshehra","kohat","para_chanaar","manshera","batgram","muzafar_abad","haripur_hazara","bunair","shangla","taimer_gran","butkhaila","upper_dir","basham","sakardu","gilgit", "hydrabad","mirpur_khass","tando_adam","badin","sukkhar","khair_pur","ghotki","kashmor","larkana","dadu","jacob_abad","nawabshah","noshehro_feroz","saanhgar","karachi_city1","karachi_city2","karachi_city3"]
-
-cities.each do |c|
-	City.create(name: c)
-end
-
-
 
 User.delete_all
-User.create(first_name: "user1", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4,   email: "user1@medix.com", password: "password", password_confirmation: "password", role: "ceo")
+User.create(first_name: "user1", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4,   email: "user1@medix.com", password: "password", password_confirmation: "password", role: "ceo", image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2010/05/employee-photographer-powerscourt-0543.jpg")
+puts "user 1 added..."
 
-User.create(first_name: "user2", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user2@medix.com", password: "password", password_confirmation: "password", role: "director_marketing", boss_id: 1)
+User.create(first_name: "user2", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user2@medix.com", password: "password", password_confirmation: "password", role: "director_marketing", boss_id: 1, image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2010/05/employee-photographer-powerscourt-0537.jpg")
+puts "user 2 added..."
 
-User.create(first_name: "user3", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user3@medix.com", password: "password", password_confirmation: "password", role: "managing_director", boss_id: 1)
+User.create(first_name: "user3", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user3@medix.com", password: "password", password_confirmation: "password", role: "managing_director", boss_id: 1, image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2012/05/bw-photograph-portrait.jpg")
+puts "user 3 added..."
 
-User.create(first_name: "user4", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user4@medix.com", password: "password", password_confirmation: "password", role: "marketing_manager", boss_id: 2)
+User.create(first_name: "user4", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user4@medix.com", password: "password", password_confirmation: "password", role: "marketing_manager", boss_id: 2, image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2012/05/bw-photograph-portrait.jpg")
+puts "user 4 added..."
 
-User.create(first_name: "user5", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user5@medix.com", password: "password", password_confirmation: "password", role: "national_sales_manager", boss_id: 4)
+User.create(first_name: "user5", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user5@medix.com", password: "password", password_confirmation: "password", role: "national_sales_manager", boss_id: 4, image: "http://www.carmichaelstudios.com/wp-content/uploads/2014/01/biz-12-Copy.jpg")
+puts "user 5 added..."
 
-User.create(first_name: "user6", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user6@medix.com", password: "password", password_confirmation: "password", role: "sales_manager", boss_id: 5)
+User.create(first_name: "user6", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user6@medix.com", password: "password", password_confirmation: "password", role: "sales_manager", boss_id: 5, image: "http://gamut1studios.com/blog/wp-content/uploads/2013/07/Michelle_loc.jpg")
+puts "user 6 added..."
 
-User.create(first_name: "user7", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user7@medix.com", password: "password", password_confirmation: "password", role: "area_sales_manager", boss_id: 6)
+User.create(first_name: "user7", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user7@medix.com", password: "password", password_confirmation: "password", role: "area_sales_manager", boss_id: 6, image: "http://www.hotel-magazine.co.uk/wp-content/uploads/2013/12/Julian.jpg")
+puts "user 7 added..."
 
-User.create(first_name: "user8", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user8@medix.com", password: "password", password_confirmation: "password", role: "sales_officer", boss_id: 7)
+User.create(first_name: "user8", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user8@medix.com", password: "password", password_confirmation: "password", role: "sales_officer", boss_id: 7, image: "https://ceridianblog.files.wordpress.com/2013/08/maurice_fernandez_retouch.jpg")
+puts "user 8 added..."
 
-User.create(first_name: "user9", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user9@medix.com", password: "password", password_confirmation: "password", role: "plant_manager", boss_id: 3)
+User.create(first_name: "user9", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user9@medix.com", password: "password", password_confirmation: "password", role: "plant_manager", boss_id: 3, image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2012/05/bw-photograph-portrait.jpg")
+puts "user 9 added..."
 
-User.create(first_name: "user10", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user10@medix.com", password: "password", password_confirmation: "password", role: "production_manager")
+User.create(first_name: "user10", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user10@medix.com", password: "password", password_confirmation: "password", role: "production_manager", image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2012/05/bw-photograph-portrait.jpg")
+puts "user 10 added..."
 
-User.create(first_name: "user11", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user11@medix.com", password: "password", password_confirmation: "password", role: "production_incharge")
+User.create(first_name: "user11", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user11@medix.com", password: "password", password_confirmation: "password", role: "production_incharge", image: "http://208.76.82.111/~jopjwepa/wp-content/uploads/2013/08/Gazzoli-19632001.jpg")
+puts "user 11 added..."
 
-User.create(first_name: "user12", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user12@medix.com", password: "password", password_confirmation: "password", role: "quality_control_manager")
+User.create(first_name: "user12", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user12@medix.com", password: "password", password_confirmation: "password", role: "quality_control_manager", image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2012/05/bw-photograph-portrait.jpg")
+puts "user 12 added..."
 
-User.create(first_name: "user13", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user13@medix.com", password: "password", password_confirmation: "password", role: "quality_control_assistant")
+User.create(first_name: "user13", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user13@medix.com", password: "password", password_confirmation: "password", role: "quality_control_assistant", image: "http://208.76.82.111/~jopjwepa/wp-content/uploads/2013/08/Gazzoli-19632001.jpg")
+puts "user 13 added..."
 
-User.create(first_name: "user14", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user14@medix.com", password: "password", password_confirmation: "password", role: "head_accountant")
+User.create(first_name: "user14", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user14@medix.com", password: "password", password_confirmation: "password", role: "head_accountant", image: "http://pghpeople.com/wordpress/wp-content/uploads/2014/10/Editorial-Portrait-pittsburgh.jpg")
+puts "user 14 added..."
 
-User.create(first_name: "user15", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user15@medix.com", password: "password", password_confirmation: "password", role: "assistant_accountant")
+User.create(first_name: "user15", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user15@medix.com", password: "password", password_confirmation: "password", role: "assistant_accountant", image: "http://www.growthbusiness.co.uk/article_images/articledir_4748/2374043/1_fullsize.jpg")
+puts "user 15 added..."
 
-User.create(first_name: "user16", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user16@medix.com", password: "password", password_confirmation: "password", role: "tablet_technician")
+User.create(first_name: "user16", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user16@medix.com", password: "password", password_confirmation: "password", role: "tablet_technician", image: "https://s-media-cache-ak0.pinimg.com/236x/2d/0f/85/2d0f851a01a5ba0a8a9aa6b9d0850e99.jpg")
+puts "user 16 added..."
 
-User.create(first_name: "user17", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user17@medix.com", password: "password", password_confirmation: "password", role: "syrup_technician")
+User.create(first_name: "user17", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user17@medix.com", password: "password", password_confirmation: "password", role: "syrup_technician", image: "http://www.shannonyashcheshen.com/images/portfolio/img35p.jpg")
+puts "user 17 added..."
 
-User.create(first_name: "user18", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user18@medix.com", password: "password", password_confirmation: "password", role: "tablet_coating_technician")
+User.create(first_name: "user18", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user18@medix.com", password: "password", password_confirmation: "password", role: "tablet_coating_technician", image: "http://03bbac5.netsolhost.com/WordPress/wp-content/uploads/2014/12/Northwest_Information_Services_Kathryn_Elsesser_9-940x1412.jpg")
+puts "user 18 added..."
 
-User.create(first_name: "user19", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user19@medix.com", password: "password", password_confirmation: "password", role: "extract_technician")
+User.create(first_name: "user19", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user19@medix.com", password: "password", password_confirmation: "password", role: "extract_technician", image: "http://gamut1studios.com/blog/wp-content/uploads/2013/07/Michelle_loc.jpg")
+puts "user 19 added..."
 
-User.create(first_name: "user20", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user20@medix.com", password: "password", password_confirmation: "password", role: "cosmatics_technician")
+User.create(first_name: "user20", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user20@medix.com", password: "password", password_confirmation: "password", role: "cosmatics_technician", image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2010/05/employee-photographer-powerscourt-0537.jpg")
+puts "user 20 added..."
 
-User.create(first_name: "user21", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user21@medix.com", password: "password", password_confirmation: "password", role: "packing_staff")
+User.create(first_name: "user21", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user21@medix.com", password: "password", password_confirmation: "password", role: "packing_staff", image: "http://208.76.82.111/~jopjwepa/wp-content/uploads/2013/08/Gazzoli-19632001.jpg")
+puts "user 21 added..."
