@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :vendors
   resources :provinces
   resources :cities
   resources :areas

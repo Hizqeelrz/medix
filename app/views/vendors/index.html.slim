@@ -1,0 +1,17 @@
+h1 Vendors#index
+p Find me in app/views/vendors/index.html.slim
+
+= link_to "New", new_vendor_path 
+
+.vendors
+	- @vendors.each do |vendor|
+		.vendor
+			.company_name = vendor.company_name
+			.person_name = vendor.person_name
+			.phone = vendor.phone
+			.mobile = vendor.mobile
+			.email = vendor.email
+			.address = vendor.address
+			.city = vendor.city
+			.state = vendor.state
+			.edit = link_to "Edit", edit_vendor_path(vendor)

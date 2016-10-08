@@ -1,0 +1,14 @@
+h1 Vendors#new
+p Find me in app/views/vendors/new.html.slim
+
+= simple_form_for @vendor do |f|
+	= f.input :company_name
+	= f.input :person_name
+	= f.input :phone
+	= f.input :mobile
+	= f.input :email
+	= f.input :address
+	= f.input :city
+	= f.input :state
+	= f.button :submit, class: "btn btn-success btn-sm"
+br/
