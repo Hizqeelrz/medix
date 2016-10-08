@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :equipments
   resources :raw_material_categories
   resources :raw_materials
   resources :vendors
