@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004172937) do
+ActiveRecord::Schema.define(version: 20161008110227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,26 @@ ActiveRecord::Schema.define(version: 20161004172937) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "raw_material_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "raw_materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "quantity"
+    t.string   "price"
+    t.integer  "vendor_id"
+    t.integer  "raw_material_category_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "raw_materials", ["raw_material_category_id"], name: "index_raw_materials_on_raw_material_category_id", using: :btree
+  add_index "raw_materials", ["vendor_id"], name: "index_raw_materials_on_vendor_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -155,6 +175,21 @@ ActiveRecord::Schema.define(version: 20161004172937) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role"], name: "index_users_on_role", using: :btree
 
+  create_table "vendors", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "person_name"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   add_foreign_key "assets", "asset_categories"
   add_foreign_key "products", "product_categories"
+  add_foreign_key "raw_materials", "raw_material_categories"
+  add_foreign_key "raw_materials", "vendors"
 end
