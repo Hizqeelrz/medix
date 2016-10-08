@@ -8,4 +8,5 @@
 #
 
 class Equipment < ActiveRecord::Base
+	belongs_to :equipment_categories
 end

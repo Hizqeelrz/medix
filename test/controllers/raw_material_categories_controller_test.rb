@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: raw_material_categories
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'test_helper'
 
 class RawMaterialCategoriesControllerTest < ActionController::TestCase
