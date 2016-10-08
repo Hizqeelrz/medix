@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :raw_material_categories
+  resources :raw_materials
   resources :vendors
   resources :provinces
   resources :cities
