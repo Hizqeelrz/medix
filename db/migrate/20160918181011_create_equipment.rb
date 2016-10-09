@@ -1,6 +1,6 @@
 class CreateEquipment < ActiveRecord::Migration
   def change
-    create_table :equipment do |t|
+    create_table :equipments do |t|
 
       t.timestamps null: false
     end
