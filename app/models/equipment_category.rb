@@ -10,5 +10,4 @@
 #
 
 class EquipmentCategory < ActiveRecord::Base
-	has_many :equipments
 end
