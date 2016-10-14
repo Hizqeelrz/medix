@@ -3,18 +3,44 @@
 # Table name: equipment
 #
 #  id         :integer          not null, primary key
+#  name       :string
+#  make       :string
+#  model      :string
+#  company    :string
+#  price      :string
+#  capacity   :string
+#  life       :string
+#  vendor_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_equipment_on_vendor_id  (vendor_id)
+#
+# Foreign Keys
+#
+#  fk_rails_2cf3063014  (vendor_id => vendors.id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  name: MyString
+  make: MyString
+  model: MyString
+  company: MyString
+  price: MyString
+  capacity: MyString
+  life: MyString
+  vendor_id: 
+
+two:
+  name: MyString
+  make: MyString
+  model: MyString
+  company: MyString
+  price: MyString
+  capacity: MyString
+  life: MyString
+  vendor_id: 

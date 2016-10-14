@@ -16,4 +16,5 @@
 #
 
 class Vendor < ActiveRecord::Base
+	has_many :raw_materials
 end

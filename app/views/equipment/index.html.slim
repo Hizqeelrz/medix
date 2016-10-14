@@ -1,0 +1,35 @@
+h1 Listing equipment
+
+table
+  thead
+    tr
+      th Name
+      th Make
+      th Model
+      th Company
+      th Price
+      th Capacity
+      th Life
+      th Vendor
+      th
+      th
+      th
+
+  tbody
+    - @equipment.each do |equipment|
+      tr
+        td = equipment.name
+        td = equipment.make
+        td = equipment.model
+        td = equipment.company
+        td = equipment.price
+        td = equipment.capacity
+        td = equipment.life
+        td = equipment.vendor
+        td = link_to 'Show', equipment
+        td = link_to 'Edit', edit_equipment_path(equipment)
+        td = link_to 'Destroy', equipment, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Equipment', new_equipment_path

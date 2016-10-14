@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @equipment.name
+p
+  strong Make:
+  = @equipment.make
+p
+  strong Model:
+  = @equipment.model
+p
+  strong Company:
+  = @equipment.company
+p
+  strong Price:
+  = @equipment.price
+p
+  strong Capacity:
+  = @equipment.capacity
+p
+  strong Life:
+  = @equipment.life
+p
+  strong Vendor:
+  = @equipment.vendor
+
+= link_to 'Edit', edit_equipment_path(@equipment)
+'|
+= link_to 'Back', equipment_index_path
