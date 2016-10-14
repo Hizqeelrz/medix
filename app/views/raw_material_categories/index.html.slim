@@ -1,2 +1,11 @@
 h1 RawMaterialCategories#index
 p Find me in app/views/raw_material_categories/index.html.slim
+
+= link_to "New", new_raw_material_category_path, class: "btn btn-primary btn-sm"
+
+.raw_material_categories
+	- @raw_material_categories.each do |raw_material_category|
+		.raw_material_category
+			.name = raw_material_category.name
+			.description = raw_material_category.description
+			.edit = link_to "Edit", edit_raw_material_category_path(raw_material_category)

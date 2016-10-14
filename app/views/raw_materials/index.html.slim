@@ -1,2 +1,14 @@
 h1 RawMaterials#index
 p Find me in app/views/raw_materials/index.html.slim
+
+= link_to "new", new_raw_material_path, class: "btn btn-primary btn-sm"
+br/
+br/
+
+.raw_materials
+	- @raw_materials.each do |raw_material|
+		.raw_material
+			.name = raw_material.name
+			.quantity = raw_material.quantity
+			.price = raw_material.price			
+			.edit = link_to "Edit", edit_raw_material_path(raw_material), class: "btn btn-default btn-sm"
