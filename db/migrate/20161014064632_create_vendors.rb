@@ -1,12 +1,12 @@
 class CreateVendors < ActiveRecord::Migration
   def change
     create_table :vendors do |t|
-      t.string :company_name
-      t.string :person_name
+      t.string :name
+      t.string :company
       t.string :phone
       t.string :mobile
-      t.string :email
       t.string :address
+      t.string :email
       t.string :city
       t.string :state
 

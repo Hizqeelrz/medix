@@ -6,10 +6,10 @@
 #  name                     :string
 #  quantity                 :string
 #  price                    :string
-#  vendor_id                :integer
 #  raw_material_category_id :integer
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
+#  vendor_id                :integer
 #
 # Indexes
 #

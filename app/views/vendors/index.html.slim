@@ -1,17 +1,35 @@
-h1 Vendors#index
-p Find me in app/views/vendors/index.html.slim
+h1 Listing vendors
 
-= link_to "New", new_vendor_path 
+table
+  thead
+    tr
+      th Name
+      th Company
+      th Phone
+      th Mobile
+      th Address
+      th Email
+      th City
+      th State
+      th
+      th
+      th
 
-.vendors
-	- @vendors.each do |vendor|
-		.vendor
-			.company_name = vendor.company_name
-			.person_name = vendor.person_name
-			.phone = vendor.phone
-			.mobile = vendor.mobile
-			.email = vendor.email
-			.address = vendor.address
-			.city = vendor.city
-			.state = vendor.state
-			.edit = link_to "Edit", edit_vendor_path(vendor)
+  tbody
+    - @vendors.each do |vendor|
+      tr
+        td = vendor.name
+        td = vendor.company
+        td = vendor.phone
+        td = vendor.mobile
+        td = vendor.address
+        td = vendor.email
+        td = vendor.city
+        td = vendor.state
+        td = link_to 'Show', vendor
+        td = link_to 'Edit', edit_vendor_path(vendor)
+        td = link_to 'Destroy', vendor, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Vendor', new_vendor_path

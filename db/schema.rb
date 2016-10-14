@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009152758) do
+ActiveRecord::Schema.define(version: 20161014065643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,10 +136,10 @@ ActiveRecord::Schema.define(version: 20161009152758) do
     t.string   "name"
     t.string   "quantity"
     t.string   "price"
-    t.integer  "vendor_id"
     t.integer  "raw_material_category_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "vendor_id"
   end
 
   add_index "raw_materials", ["raw_material_category_id"], name: "index_raw_materials_on_raw_material_category_id", using: :btree
@@ -193,16 +193,16 @@ ActiveRecord::Schema.define(version: 20161009152758) do
   add_index "users", ["role"], name: "index_users_on_role", using: :btree
 
   create_table "vendors", force: :cascade do |t|
-    t.string   "company_name"
-    t.string   "person_name"
+    t.string   "name"
+    t.string   "company"
     t.string   "phone"
     t.string   "mobile"
-    t.string   "email"
     t.string   "address"
+    t.string   "email"
     t.string   "city"
     t.string   "state"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "assets", "asset_categories"

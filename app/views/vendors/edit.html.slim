@@ -1,14 +1,8 @@
-h1 Vendors#edit
-p Find me in app/views/vendors/edit.html.slim
+h1 Editing vendor
 
-= simple_form_for @vendor do |f|
-	= f.input :company_name
-	= f.input :person_name
-	= f.input :phone
-	= f.input :mobile
-	= f.input :email
-	= f.input :address
-	= f.input :city
-	= f.input :state
-	= f.button :submit, class: "btn btn-success btn-sm"
-br/
+== render 'form'
+
+= link_to 'Show', @vendor
+'|
+= link_to 'Back', vendors_path
+

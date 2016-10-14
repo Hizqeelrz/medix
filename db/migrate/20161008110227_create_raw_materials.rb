@@ -4,7 +4,6 @@ class CreateRawMaterials < ActiveRecord::Migration
       t.string :name
       t.string :quantity
       t.string :price
-      t.references :vendor, index: true, foreign_key: true
       t.references :raw_material_category, index: true, foreign_key: true
 
       t.timestamps null: false

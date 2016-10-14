@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :vendors
   resources :equipment_categories
   resources :equipments
   resources :raw_material_categories
   resources :raw_materials
-  resources :vendors
   resources :provinces
   resources :cities
   resources :areas
