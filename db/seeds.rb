@@ -337,3 +337,33 @@ puts "user 1 added"
 
 #User.create(first_name: "user21", last_name: "Robert", gender: 0, dob: "1980-05-20", nic: "34101-0753043-", address: "323-D Al Rahman Garden", city: "Lahore", state: "Punjab", phone: "042-37189878", mobile: "0665-0404600", joining_date: "2000-02-24", marital_status: 0, basic_salary: 45000, qualification: 4, email: "user21@medix.com", password: "password", password_confirmation: "password", role: "packing_staff", image: "http://208.76.82.111/~jopjwepa/wp-content/uploads/2013/08/Gazzoli-19632001.jpg")
 #puts "user 21 added"
+
+Vendor.delete_all
+10.times do |n|
+  vendor = Vendor.create(name: "Foley", company: "Company #{n}", phone: "004478965846242", mobile: "03149214714", email: "vendor#{n}@medix.com", address: "10 downing street London", city: "Lahore", state: "Punjab")
+  puts "#{vendor.company} added."
+end
+
+RawMaterial.delete_all
+10.times do |n|
+  raw_material = RawMaterial.create(name: "Raw Material #{n}", quantity: "10#{n}", price: "1000#{n}")
+  puts "#{raw_material.name} added."
+end
+
+Equipment.delete_all
+10.times do |n|
+  equipment = Equipment.create(name: "Equipment #{n}", make: "Yamaha", model: "2014", company: "Company #{n}", price: "88000", capacity: "150", life: "7")
+  puts "#{equipment.name} added."
+end
+
+Product.delete_all
+10.times do |n|
+  product = Product.create(name: "Product #{n}")
+  puts "#{product.name} added."
+end
+
+ProductIngrediant.delete_all
+10.times do |n|
+  product_ingrediant = ProductIngrediant.create(quantity: 20 + n)
+  puts "#{product_ingrediant.quantity} added."
+end

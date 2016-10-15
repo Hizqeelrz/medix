@@ -7,7 +7,9 @@
 		<li><%= link_to "Raw Material", raw_materials_path %></li>
 		<li><%= link_to "Raw Material Categories", raw_material_categories_path %></li>
 		<li><%= link_to "Equipments", equipment_index_path %></li>
-		<li><%= link_to "Equipment Categories", equipment_categories_path %></li>		
+		<li><%= link_to "Equipment Categories", equipment_categories_path %></li>
+		<li><%= link_to "Products", products_path %></li>
+		<li><%= link_to "Product Ingrediants", product_ingrediants_path %></li>				
 		<li><a href="">item5</a></li>
 		<li><a href="">item6</a></li>
 		<li><a href="">item7</a></li>
@@ -15,6 +17,6 @@
 			<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 		<% else %>
 			<li><% link_to "Sign In", new_user_session_path %></li>
-		<% end -%> 
+		<% end -%>
 	</ul>
 </div>
