@@ -1,0 +1,27 @@
+h1 Listing product_ingrediants
+
+table
+  thead
+    tr
+      th Raw material
+      th Product
+      th Unit
+      th Quantity
+      th
+      th
+      th
+
+  tbody
+    - @product_ingrediants.each do |product_ingrediant|
+      tr
+        td = product_ingrediant.raw_material
+        td = product_ingrediant.product
+        td = product_ingrediant.unit
+        td = product_ingrediant.quantity
+        td = link_to 'Show', product_ingrediant
+        td = link_to 'Edit', edit_product_ingrediant_path(product_ingrediant)
+        td = link_to 'Destroy', product_ingrediant, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Product ingrediant', new_product_ingrediant_path

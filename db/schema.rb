@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014221826) do
+ActiveRecord::Schema.define(version: 20161015080744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,18 @@ ActiveRecord::Schema.define(version: 20161014221826) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "product_ingrediants", force: :cascade do |t|
+    t.integer  "raw_material_id"
+    t.integer  "product_id"
+    t.string   "unit"
+    t.integer  "quantity"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "product_ingrediants", ["product_id"], name: "index_product_ingrediants_on_product_id", using: :btree
+  add_index "product_ingrediants", ["raw_material_id"], name: "index_product_ingrediants_on_raw_material_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "product_category_id"
@@ -207,6 +219,8 @@ ActiveRecord::Schema.define(version: 20161014221826) do
 
   add_foreign_key "assets", "asset_categories"
   add_foreign_key "equipment", "vendors"
+  add_foreign_key "product_ingrediants", "products"
+  add_foreign_key "product_ingrediants", "raw_materials"
   add_foreign_key "products", "product_categories"
   add_foreign_key "raw_materials", "raw_material_categories"
   add_foreign_key "raw_materials", "vendors"

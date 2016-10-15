@@ -25,4 +25,5 @@
 class RawMaterial < ActiveRecord::Base
   belongs_to :vendor
   belongs_to :raw_material_category
+  has_many :product_ingrediants
 end

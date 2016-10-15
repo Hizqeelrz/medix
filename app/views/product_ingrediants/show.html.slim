@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Raw material:
+  = @product_ingrediant.raw_material
+p
+  strong Product:
+  = @product_ingrediant.product
+p
+  strong Unit:
+  = @product_ingrediant.unit
+p
+  strong Quantity:
+  = @product_ingrediant.quantity
+
+= link_to 'Edit', edit_product_ingrediant_path(@product_ingrediant)
+'|
+= link_to 'Back', product_ingrediants_path

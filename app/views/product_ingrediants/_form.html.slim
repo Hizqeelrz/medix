@@ -1,0 +1,11 @@
+= simple_form_for(@product_ingrediant) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :raw_material
+    = f.association :product
+    = f.input :unit
+    = f.input :quantity
+
+  .form-actions
+    = f.button :submit
