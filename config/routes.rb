@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :product_ingrediants
   resources :products
-  resources :equipment
+  resources :equipments
   resources :vendors
   resources :equipment_categories
   resources :raw_material_categories

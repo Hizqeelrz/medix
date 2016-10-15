@@ -1,10 +1,10 @@
-class EquipmentController < ApplicationController
+class EquipmentsController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipments = Equipment.all
   end
 
   # GET /equipment/1
@@ -56,7 +56,7 @@ class EquipmentController < ApplicationController
   def destroy
     @equipment.destroy
     respond_to do |format|
-      format.html { redirect_to equipment_index_url, notice: 'Equipment was successfully destroyed.' }
+      format.html { redirect_to equipments_url, notice: 'Equipment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
