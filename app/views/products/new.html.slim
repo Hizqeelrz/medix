@@ -1,2 +1,16 @@
 h1 Products#new
 p Find me in app/views/products/new.html.slim
+
+= simple_form_for @product do |f|
+	.product
+		= f.input :name
+		h3 Product ingrediants
+		#product_ingrediants
+			.form_inline
+				= f.simple_fields_for :product_ingrediants do |product_ingrediant|
+					= render "product_ingrediant_fields", f: product_ingrediant
+				.links
+					= link_to_add_association "add", f, :product_ingrediants, class: "btn btn-primary btn-xs"
+					br/
+					br/
+				= f.button :submit, class: "btn btn-success btn-xs"		

@@ -1,6 +1,8 @@
 h1 Products#index
 p Find me in app/views/products/index.html.slim
 
+= link_to "New", new_product_path
+
 .products
 	- @products.each do |product|
 			.product

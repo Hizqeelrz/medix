@@ -20,4 +20,6 @@
 class Product < ActiveRecord::Base
   belongs_to :product_category
   has_many :product_ingrediants
+
+  accepts_nested_attributes_for :product_ingrediants, reject_if: :all_blank, allow_destroy: true
 end
