@@ -1,2 +1,14 @@
 h1 Products#show
 p Find me in app/views/products/show.html.slim
+
+.product
+	= @product.name
+	hr
+	.ingrediants
+		- @product.product_ingrediants.each do |pro|
+			= pro.raw_material.name
+			br
+			= pro.quantity
+			br
+			= pro.unit
+			hr
