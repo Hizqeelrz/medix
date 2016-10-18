@@ -1,2 +1,14 @@
 h1 Orders#edit
 p Find me in app/views/orders/edit.html.slim
+
+= simple_form_for @order do |f|
+	= f.association :client
+	h3 Products
+	#products
+		.form_inline
+			= f.simple_fields_for :order_products do |order_product|
+				= render "order_product_fields", f: order_product
+			.links
+				= link_to_add_association "add order product", f, :order_products, class: "btn btn-primary btn-sm"
+			br/	
+			= f.button :submit, class: "btn btn-success btn-sm"
