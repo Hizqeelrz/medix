@@ -13,4 +13,4 @@
     = f.association :user, collection: User.all.map {|u| [u.full_name, u.id] }
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-success btn-sm"
