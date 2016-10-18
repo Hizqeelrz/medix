@@ -1,0 +1,12 @@
+= simple_form_for(@bank_transaction) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :bank_account
+    = f.association :user
+    = f.input :amount
+    = f.input :transaction_type
+    = f.input :check_number
+
+  .form-actions
+    = f.button :submit

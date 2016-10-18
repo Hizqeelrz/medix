@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bank_transactions
+  resources :bank_accounts
   resources :orders
   resources :product_ingrediants
   resources :products

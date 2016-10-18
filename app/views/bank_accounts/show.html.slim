@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Account title:
+  = @bank_account.account_title
+p
+  strong Account number:
+  = @bank_account.account_number
+p
+  strong Iban:
+  = @bank_account.iban
+p
+  strong Balance:
+  = @bank_account.balance
+p
+  strong Bank name:
+  = @bank_account.bank_name
+p
+  strong Branch name:
+  = @bank_account.branch_name
+p
+  strong Branch address:
+  = @bank_account.branch_address
+p
+  strong Branch city:
+  = @bank_account.branch_city
+p
+  strong User:
+  = @bank_account.user
+
+= link_to 'Edit', edit_bank_account_path(@bank_account)
+'|
+= link_to 'Back', bank_accounts_path

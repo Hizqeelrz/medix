@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Bank account:
+  = @bank_transaction.bank_account
+p
+  strong User:
+  = @bank_transaction.user
+p
+  strong Amount:
+  = @bank_transaction.amount
+p
+  strong Transaction type:
+  = @bank_transaction.transaction_type
+p
+  strong Check number:
+  = @bank_transaction.check_number
+
+= link_to 'Edit', edit_bank_transaction_path(@bank_transaction)
+'|
+= link_to 'Back', bank_transactions_path

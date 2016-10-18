@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017191505) do
+ActiveRecord::Schema.define(version: 20161018182239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,35 @@ ActiveRecord::Schema.define(version: 20161017191505) do
   end
 
   add_index "assets", ["asset_category_id"], name: "index_assets_on_asset_category_id", using: :btree
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string   "account_title"
+    t.string   "account_number"
+    t.string   "iban"
+    t.integer  "balance"
+    t.string   "bank_name"
+    t.string   "branch_name"
+    t.string   "branch_address"
+    t.string   "branch_city"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "bank_accounts", ["user_id"], name: "index_bank_accounts_on_user_id", using: :btree
+
+  create_table "bank_transactions", force: :cascade do |t|
+    t.integer  "bank_account_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.integer  "transaction_type"
+    t.string   "check_number"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "bank_transactions", ["bank_account_id"], name: "index_bank_transactions_on_bank_account_id", using: :btree
+  add_index "bank_transactions", ["user_id"], name: "index_bank_transactions_on_user_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -234,6 +263,9 @@ ActiveRecord::Schema.define(version: 20161017191505) do
   end
 
   add_foreign_key "assets", "asset_categories"
+  add_foreign_key "bank_accounts", "users"
+  add_foreign_key "bank_transactions", "bank_accounts"
+  add_foreign_key "bank_transactions", "users"
   add_foreign_key "equipment", "vendors"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
