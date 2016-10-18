@@ -26,7 +26,7 @@ p
   = @bank_account.branch_city
 p
   strong User:
-  = @bank_account.user
+  = @bank_account.user.full_name if @bank_account.user
 
 = link_to 'Edit', edit_bank_account_path(@bank_account)
 '|

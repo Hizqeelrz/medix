@@ -27,7 +27,7 @@ table
         td = bank_account.branch_name
         td = bank_account.branch_address
         td = bank_account.branch_city
-        td = bank_account.user
+        td = bank_account.user.full_name
         td = link_to 'Show', bank_account
         td = link_to 'Edit', edit_bank_account_path(bank_account)
         td = link_to 'Destroy', bank_account, data: {:confirm => 'Are you sure?'}, :method => :delete

@@ -2,10 +2,10 @@ p#notice = notice
 
 p
   strong Bank account:
-  = @bank_transaction.bank_account
+  = @bank_transaction.bank_account.account_title if @bank_transaction.bank_account
 p
   strong User:
-  = @bank_transaction.user
+  = @bank_transaction.user.full_name if @bank_transaction.user
 p
   strong Amount:
   = @bank_transaction.amount

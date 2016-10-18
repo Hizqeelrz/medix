@@ -10,7 +10,7 @@
     = f.input :branch_name
     = f.input :branch_address
     = f.input :branch_city
-    = f.association :user
+    = f.association :user, collection: User.all.map {|u| [u.full_name, u.id] }
 
   .form-actions
     = f.button :submit
