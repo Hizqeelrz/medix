@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Vendor:
+  = @raw_material_invoice.vendor
+
+= link_to 'Edit', edit_raw_material_invoice_path(@raw_material_invoice)
+'|
+= link_to 'Back', raw_material_invoices_path

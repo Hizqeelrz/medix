@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :raw_material_invoices
   get 'mark_attendance', to: "attendances#mark_attendance"
 
   resources :bank_transactions

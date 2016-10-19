@@ -1,0 +1,8 @@
+= simple_form_for(@raw_material_invoice) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :vendor
+
+  .form-actions
+    = f.button :submit
