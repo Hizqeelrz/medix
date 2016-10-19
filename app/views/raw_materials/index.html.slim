@@ -9,6 +9,4 @@ br/
 	- @raw_materials.each do |raw_material|
 		.raw_material
 			.name = raw_material.name
-			.quantity = raw_material.quantity
-			.price = raw_material.price			
 			.edit = link_to "Edit", edit_raw_material_path(raw_material), class: "btn btn-default btn-sm"

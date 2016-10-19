@@ -346,7 +346,7 @@ end
 
 RawMaterial.delete_all
 10.times do |n|
-  raw_material = RawMaterial.create(name: "Raw Material #{n}", quantity: "10#{n}", price: "1000#{n}")
+  raw_material = RawMaterial.create(name: "Raw Material #{n}")
   puts "#{raw_material.name} added."
 end
 

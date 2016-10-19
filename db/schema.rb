@@ -206,16 +206,12 @@ ActiveRecord::Schema.define(version: 20161019070401) do
 
   create_table "raw_materials", force: :cascade do |t|
     t.string   "name"
-    t.string   "quantity"
-    t.string   "price"
     t.integer  "raw_material_category_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "vendor_id"
   end
 
   add_index "raw_materials", ["raw_material_category_id"], name: "index_raw_materials_on_raw_material_category_id", using: :btree
-  add_index "raw_materials", ["vendor_id"], name: "index_raw_materials_on_vendor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -291,5 +287,4 @@ ActiveRecord::Schema.define(version: 20161019070401) do
   add_foreign_key "product_ingrediants", "raw_materials"
   add_foreign_key "products", "product_categories"
   add_foreign_key "raw_materials", "raw_material_categories"
-  add_foreign_key "raw_materials", "vendors"
 end
