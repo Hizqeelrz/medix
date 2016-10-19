@@ -69,6 +69,6 @@ class RawMaterialInvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def raw_material_invoice_params
-      params.require(:raw_material_invoice).permit(:vendor_id)
+      params.require(:raw_material_invoice).permit(:vendor_id, raw_material_invoice_items_attributes: [:id, :quantity, :price, :unit, :raw_material_id, :_destroy])
     end
 end

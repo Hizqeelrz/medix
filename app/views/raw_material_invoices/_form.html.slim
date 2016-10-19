@@ -3,6 +3,13 @@
 
   .form-inputs
     = f.association :vendor
+    h3 Item
+    #items
+    	.form-inline
+    		= f.simple_fields_for :raw_material_invoice_items do |item|
+    			= render "raw_material_invoice_item_fields", f: item
+    		.links
+    			= link_to_add_association "add", f, :raw_material_invoice_items	
 
   .form-actions
     = f.button :submit

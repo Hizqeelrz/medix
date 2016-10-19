@@ -11,7 +11,7 @@ table
   tbody
     - @raw_material_invoices.each do |raw_material_invoice|
       tr
-        td = raw_material_invoice.vendor
+        td = raw_material_invoice.vendor.name
         td = link_to 'Show', raw_material_invoice
         td = link_to 'Edit', edit_raw_material_invoice_path(raw_material_invoice)
         td = link_to 'Destroy', raw_material_invoice, data: {:confirm => 'Are you sure?'}, :method => :delete

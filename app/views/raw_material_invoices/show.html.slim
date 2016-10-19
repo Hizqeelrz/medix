@@ -2,7 +2,13 @@ p#notice = notice
 
 p
   strong Vendor:
-  = @raw_material_invoice.vendor
+  = @raw_material_invoice.vendor.name
+  - @raw_material_invoice.raw_material_invoice_items.each do |invoice|
+  	.item
+  		.iiname = invoice.raw_material.name
+  		.iiquantity = invoice.quantity
+  		.iiunit = invoice.unit
+  		.iiprice = invoice.price
 
 = link_to 'Edit', edit_raw_material_invoice_path(@raw_material_invoice)
 '|

@@ -21,4 +21,5 @@ class RawMaterial < ActiveRecord::Base
 	
   belongs_to :raw_material_category
   has_many :product_ingrediants
+  has_many :raw_material_invoice_items
 end

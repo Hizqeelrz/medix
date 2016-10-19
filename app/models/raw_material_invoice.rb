@@ -18,4 +18,6 @@
 
 class RawMaterialInvoice < ActiveRecord::Base
   belongs_to :vendor
+  has_many :raw_material_invoice_items
+  accepts_nested_attributes_for :raw_material_invoice_items, reject_if: :all_blank, allow_destroy: true
 end

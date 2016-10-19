@@ -1,0 +1,6 @@
+.nested_form
+	= f.association :raw_material
+	= f.input :quantity
+	= f.input :unit
+	= f.input :price
+	= link_to_remove_association "remove", f
