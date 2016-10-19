@@ -1,0 +1,8 @@
+h1 Attendances#mark_attendance
+p Find me in app/views/attendances/mark_attendance.html.slim
+
+- @users.each do |user|
+	.user
+		.name = user.last_name
+		.image = image_tag user.image.url(:thumb), class: "img-circle"
+		.role = user.role

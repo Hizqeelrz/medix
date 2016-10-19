@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018182239) do
+ActiveRecord::Schema.define(version: 20161019070401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20161018182239) do
   end
 
   add_index "assets", ["asset_category_id"], name: "index_assets_on_asset_category_id", using: :btree
+
+  create_table "attendances", id: false, force: :cascade do |t|
+    t.datetime "time_in"
+    t.datetime "time_out"
+    t.boolean  "on_leave"
+    t.text     "leave_reason"
+    t.integer  "approved_by"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "attendances", ["time_in"], name: "index_attendances_on_time_in", using: :btree
+  add_index "attendances", ["time_out"], name: "index_attendances_on_time_out", using: :btree
+  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "bank_accounts", force: :cascade do |t|
     t.string   "account_title"
@@ -263,6 +278,7 @@ ActiveRecord::Schema.define(version: 20161018182239) do
   end
 
   add_foreign_key "assets", "asset_categories"
+  add_foreign_key "attendances", "users"
   add_foreign_key "bank_accounts", "users"
   add_foreign_key "bank_transactions", "bank_accounts"
   add_foreign_key "bank_transactions", "users"

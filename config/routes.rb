@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'attendances/mark_attendance'
+
   resources :bank_transactions
   resources :bank_accounts
   resources :orders
