@@ -1,0 +1,1 @@
+json.partial! "raw_material_invoice_items/raw_material_invoice_item", raw_material_invoice_item: @raw_material_invoice_item

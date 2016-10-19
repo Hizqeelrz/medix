@@ -1,0 +1,29 @@
+h1 Listing raw_material_invoice_items
+
+table
+  thead
+    tr
+      th Quantity
+      th Unit
+      th Price
+      th Raw material
+      th Raw material invoice
+      th
+      th
+      th
+
+  tbody
+    - @raw_material_invoice_items.each do |raw_material_invoice_item|
+      tr
+        td = raw_material_invoice_item.quantity
+        td = raw_material_invoice_item.unit
+        td = raw_material_invoice_item.price
+        td = raw_material_invoice_item.raw_material
+        td = raw_material_invoice_item.raw_material_invoice
+        td = link_to 'Show', raw_material_invoice_item
+        td = link_to 'Edit', edit_raw_material_invoice_item_path(raw_material_invoice_item)
+        td = link_to 'Destroy', raw_material_invoice_item, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Raw material invoice item', new_raw_material_invoice_item_path

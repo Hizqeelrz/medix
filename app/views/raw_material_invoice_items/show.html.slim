@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Quantity:
+  = @raw_material_invoice_item.quantity
+p
+  strong Unit:
+  = @raw_material_invoice_item.unit
+p
+  strong Price:
+  = @raw_material_invoice_item.price
+p
+  strong Raw material:
+  = @raw_material_invoice_item.raw_material
+p
+  strong Raw material invoice:
+  = @raw_material_invoice_item.raw_material_invoice
+
+= link_to 'Edit', edit_raw_material_invoice_item_path(@raw_material_invoice_item)
+'|
+= link_to 'Back', raw_material_invoice_items_path

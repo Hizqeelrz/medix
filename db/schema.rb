@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019101251) do
+ActiveRecord::Schema.define(version: 20161019135010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,19 @@ ActiveRecord::Schema.define(version: 20161019101251) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "raw_material_invoice_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.string   "unit"
+    t.integer  "price"
+    t.integer  "raw_material_id"
+    t.integer  "raw_material_invoice_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "raw_material_invoice_items", ["raw_material_id"], name: "index_raw_material_invoice_items_on_raw_material_id", using: :btree
+  add_index "raw_material_invoice_items", ["raw_material_invoice_id"], name: "index_raw_material_invoice_items_on_raw_material_invoice_id", using: :btree
+
   create_table "raw_material_invoices", force: :cascade do |t|
     t.integer  "vendor_id"
     t.datetime "created_at", null: false
@@ -294,6 +307,8 @@ ActiveRecord::Schema.define(version: 20161019101251) do
   add_foreign_key "product_ingrediants", "products"
   add_foreign_key "product_ingrediants", "raw_materials"
   add_foreign_key "products", "product_categories"
+  add_foreign_key "raw_material_invoice_items", "raw_material_invoices"
+  add_foreign_key "raw_material_invoice_items", "raw_materials"
   add_foreign_key "raw_material_invoices", "vendors"
   add_foreign_key "raw_materials", "raw_material_categories"
 end

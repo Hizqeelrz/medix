@@ -1,0 +1,1 @@
+json.array! @raw_material_invoice_items, partial: 'raw_material_invoice_items/raw_material_invoice_item', as: :raw_material_invoice_item

@@ -1,0 +1,2 @@
+json.extract! raw_material_invoice_item, :id, :quantity, :unit, :price, :raw_material_id, :raw_material_invoice_id, :created_at, :updated_at
+json.url raw_material_invoice_item_url(raw_material_invoice_item, format: :json)
