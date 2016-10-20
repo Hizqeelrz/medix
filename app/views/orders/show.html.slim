@@ -1,14 +1,13 @@
-h1 Orders#show
-p Find me in app/views/orders/show.html.slim
+h1 Showing Order
 
 .order
-	.edit = link_to "Edit", edit_order_path(@order)
+	.edit = link_to "Edit", edit_order_path(@order), class: "btn btn-info btn-sm"
 	.id = @order.id
 	.client = @order.client.name
 	.products
 		- @order.order_products.each do |order_product|
 			.product
-				.pname = order_product.product.name
+				.pname = order_product.product.name if order_product.product
 				.pquantity = order_product.quantity
 				.pprice = order_product.price_per_unit
 				.ptprice = order_product.total_price

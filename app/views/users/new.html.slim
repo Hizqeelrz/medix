@@ -1,5 +1,4 @@
-h2 Users#new
-p Find me in app/views/users/new.html.slim
+h2 New Users
 
 h1 Create User
 = simple_form_for @user do |f|
@@ -29,4 +28,5 @@ h1 Create User
 	= f.input :job_area, collection: []
 	= f.input :job_city, collection: []
 	= f.association :boss, collection: User.all.map { |u| [u.email, u.id] }
-	= f.button :submit
+	= f.button :submit, class: "btn btn-success"
+br/	

@@ -1,2 +1,14 @@
-h1 RawMaterialCategories#show
-p Find me in app/views/raw_material_categories/show.html.slim
+h1  Showing RawMaterial Category
+br/
+br/
+
+p
+	strong Name:
+	= @raw_material_category.name
+
+p
+	strong Description:
+	= @raw_material_category.description
+
+br
+= link_to "Back", raw_material_categories_path, class: "btn btn-primary btn-sm"	

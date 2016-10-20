@@ -9,4 +9,4 @@
     = f.association :raw_material_invoice, collection: RawMaterialInvoice.all.map {|i| [i.id]}
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-success btn-sm"

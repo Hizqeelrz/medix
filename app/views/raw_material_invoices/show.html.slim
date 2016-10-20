@@ -1,15 +1,28 @@
 p#notice = notice
 
-p
-  strong Vendor:
-  = @raw_material_invoice.vendor.name
-  - @raw_material_invoice.raw_material_invoice_items.each do |invoice|
-  	.item
-  		.iiname = invoice.raw_material.name
-  		.iiquantity = invoice.quantity
-  		.iiunit = invoice.unit
-  		.iiprice = invoice.price
+h3
+	strong id : 
+	= @raw_material_invoice.id
+h4
+	strong Vendor Name : 
+	= @raw_material_invoice.vendor.name
 
-= link_to 'Edit', edit_raw_material_invoice_path(@raw_material_invoice)
+
+table.table.table-hover
+	thead
+		tr
+			th Name
+			th Quantity
+			th Unit
+			th Price
+
+	tbody
+		- @raw_material_invoice.raw_material_invoice_items.each do |invoice|
+			td = invoice.raw_material.name
+			td = invoice.quantity
+			td = invoice.unit
+			td = invoice.price
+
+= link_to 'Edit', edit_raw_material_invoice_path(@raw_material_invoice), class: "btn btn-info btn-sm"
 '|
-= link_to 'Back', raw_material_invoices_path
+= link_to 'Back', raw_material_invoices_path, class: "btn btn-default btn-sm"			

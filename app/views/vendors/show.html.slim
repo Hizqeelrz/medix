@@ -1,5 +1,11 @@
 p#notice = notice
 
+h3
+  strong Showing Vendor # 
+  = @vendor.id
+
+br/
+
 p
   strong Name:
   = @vendor.name
@@ -25,6 +31,6 @@ p
   strong State:
   = @vendor.state
 
-= link_to 'Edit', edit_vendor_path(@vendor)
+= link_to 'Edit', edit_vendor_path(@vendor), class: "btn btn-info btn-sm"
 '|
-= link_to 'Back', vendors_path
+= link_to 'Back', vendors_path, class: "btn btn-default btn-sm"

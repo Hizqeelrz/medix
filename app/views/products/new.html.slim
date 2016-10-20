@@ -1,5 +1,4 @@
-h1 Products#new
-p Find me in app/views/products/new.html.slim
+h1 New Product
 
 = simple_form_for @product do |f|
 	.product
@@ -13,4 +12,8 @@ p Find me in app/views/products/new.html.slim
 					= link_to_add_association "add", f, :product_ingrediants, class: "btn btn-primary btn-xs"
 					br/
 					br/
-				= f.button :submit, class: "btn btn-success btn-xs"		
+				= f.button :submit, class: "btn btn-success btn-sm"
+
+br
+
+= link_to "Back", products_path, class: "btn btn-default btn-sm"				

@@ -1,8 +1,10 @@
-h1 RawMaterials#new
-p Find me in app/views/raw_materials/new.html.slim
+h1 New Raw Materials
+
 
 = simple_form_for @raw_material do |f|
 	= f.input :name
 	= f.association :raw_material_category
 	= f.button :submit, class: "btn btn-success btn-sm"
-br/	
+br/
+
+= link_to "Back", raw_materials_path, class: "btn btn-default btn-sm"

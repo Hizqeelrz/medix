@@ -1,28 +1,28 @@
-h1 Listing bank_transactions
+h1 Listing Bank Transactions
 
-table
+table.table
   thead
     tr
       th Bank account
-      th User
       th Amount
+      th Check number      
       th Transaction type
-      th Check number
-      th
-      th
+      th User      
       th
 
   tbody
     - @bank_transactions.each do |bank_transaction|
       tr
         td = bank_transaction.bank_account.account_title
-        td = bank_transaction.user.full_name
         td = bank_transaction.amount
-        td = bank_transaction.transaction_type
         td = bank_transaction.check_number
-        td = link_to 'Show', bank_transaction
-        td = link_to 'Edit', edit_bank_transaction_path(bank_transaction)
-        td = link_to 'Destroy', bank_transaction, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = bank_transaction.transaction_type
+        td = bank_transaction.user.full_name        
+        td
+          .btn-group
+             = link_to 'Show', bank_transaction, class: "btn btn-default btn-xs"
+             = link_to 'Edit', edit_bank_transaction_path(bank_transaction), class: "btn btn-info btn-xs"
+             = link_to 'Destroy', bank_transaction, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
 
 br
 

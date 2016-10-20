@@ -1,5 +1,4 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+h1 Showing User
 
 .user
 	.first_name = @user.first_name
@@ -19,5 +18,6 @@ p Find me in app/views/users/show.html.slim
 	.job_province = @user.job_province if @user.job_province
 	.boss = @user.boss.first_name if @user.boss
 	.email = @user.email
-	.link = link_to "Edit", edit_user_path
+	br/
+	.link = link_to "Edit", edit_user_path, class:"btn btn-info btn-xs"
 	hr/

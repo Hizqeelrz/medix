@@ -1,5 +1,9 @@
 p#notice = notice
 
+h2 Showing Equipment Category
+
+br/
+
 p
   strong Name:
   = @equipment_category.name
@@ -7,6 +11,6 @@ p
   strong Description:
   = @equipment_category.description
 
-= link_to 'Edit', edit_equipment_category_path(@equipment_category)
+= link_to 'Edit', edit_equipment_category_path(@equipment_category), class: "btn btn-info btn-sm"
 '|
-= link_to 'Back', equipment_categories_path
+= link_to 'Back', equipment_categories_path, class: "btn btn-default btn-sm"

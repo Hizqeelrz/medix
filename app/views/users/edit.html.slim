@@ -1,5 +1,4 @@
-h1 Users#edit
-p Find me in app/views/users/edit.html.slim
+h1 Edit User
 
 = simple_form_for @user do |f|
 	= f.input :first_name
@@ -28,4 +27,5 @@ p Find me in app/views/users/edit.html.slim
 	= f.input :job_area, collection: []
 	= f.input :job_city, collection: []
 	= f.association :boss, collection: User.all.map { |u| [u.email, u.id] }
-	= f.button :submit
+	= f.button :submit, class: "btn btn-success"
+br/	

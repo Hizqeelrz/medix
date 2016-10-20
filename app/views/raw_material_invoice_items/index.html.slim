@@ -1,4 +1,10 @@
-h1 Listing raw_material_invoice_items
+h1 Listing raw material invoice items
+
+= link_to 'New Raw material invoice item', new_raw_material_invoice_item_path, class: "btn btn-primary btn-sm"
+
+br/
+br/
+
 
 table.table
   thead
@@ -20,10 +26,8 @@ table.table
         td = raw_material_invoice_item.price
         td = raw_material_invoice_item.raw_material.name
         td = raw_material_invoice_item.raw_material_invoice.id
-        td = link_to 'Show', raw_material_invoice_item
-        td = link_to 'Edit', edit_raw_material_invoice_item_path(raw_material_invoice_item)
-        td = link_to 'Destroy', raw_material_invoice_item, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Raw material invoice item', new_raw_material_invoice_item_path
+        td
+          .btn-group
+             = link_to 'Show', raw_material_invoice_item, class: "btn btn-default btn-xs"
+             = link_to 'Edit', edit_raw_material_invoice_item_path(raw_material_invoice_item), class: "btn btn-info btn-xs"
+             = link_to 'Destroy', raw_material_invoice_item, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"

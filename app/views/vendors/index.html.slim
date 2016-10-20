@@ -1,18 +1,16 @@
 h1 Listing vendors
 
-table
+= link_to 'New Vendor', new_vendor_path, class: "btn btn-primary btn-sm"
+br/
+br/
+
+table.table.table-hover
   thead
     tr
       th Name
       th Company
       th Phone
       th Mobile
-      th Address
-      th Email
-      th City
-      th State
-      th
-      th
       th
 
   tbody
@@ -22,14 +20,8 @@ table
         td = vendor.company
         td = vendor.phone
         td = vendor.mobile
-        td = vendor.address
-        td = vendor.email
-        td = vendor.city
-        td = vendor.state
-        td = link_to 'Show', vendor
-        td = link_to 'Edit', edit_vendor_path(vendor)
-        td = link_to 'Destroy', vendor, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Vendor', new_vendor_path
+        td
+          .btn-group
+            = link_to 'Show', vendor, class: "btn btn-default btn-xs"
+            = link_to 'Edit', edit_vendor_path(vendor), class: "btn btn-info btn-xs"
+            = link_to 'Destroy', vendor, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"        

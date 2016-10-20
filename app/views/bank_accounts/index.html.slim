@@ -1,16 +1,13 @@
-h1 Listing bank_accounts
+h1 Listing Bank Accounts
 
-table
+table.table
   thead
     tr
       th Account title
       th Account number
-      th Iban
       th Balance
       th Bank name
       th Branch name
-      th Branch address
-      th Branch city
       th User
       th
       th
@@ -21,16 +18,15 @@ table
       tr
         td = bank_account.account_title
         td = bank_account.account_number
-        td = bank_account.iban
         td = bank_account.balance
         td = bank_account.bank_name
         td = bank_account.branch_name
-        td = bank_account.branch_address
-        td = bank_account.branch_city
         td = bank_account.user.full_name
-        td = link_to 'Show', bank_account
-        td = link_to 'Edit', edit_bank_account_path(bank_account)
-        td = link_to 'Destroy', bank_account, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          .btn-group
+             = link_to 'Show', bank_account, class: "btn btn-default btn-xs"
+             = link_to 'Edit', edit_bank_account_path(bank_account), class: "btn btn-info btn-xs"
+             = link_to 'Destroy', bank_account, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
 
 br
 

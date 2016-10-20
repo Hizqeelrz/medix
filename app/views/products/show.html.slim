@@ -1,5 +1,4 @@
-h1 Products#show
-p Find me in app/views/products/show.html.slim
+h1 Showing Products
 
 .product
 	= @product.name
@@ -12,3 +11,5 @@ p Find me in app/views/products/show.html.slim
 			br
 			= pro.unit
 			hr
+
+= link_to "Back", products_path, class: "btn btn-default btn-sm"			

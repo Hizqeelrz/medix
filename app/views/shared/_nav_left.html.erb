@@ -6,6 +6,8 @@
 		<li><%= link_to "Vendors", vendors_path %></li>
 		<li><%= link_to "Raw Material", raw_materials_path %></li>
 		<li><%= link_to "Raw Material Categories", raw_material_categories_path %></li>
+		<li><%= link_to "Raw Material Invoice", raw_material_invoices_path %></li>
+		<li><%= link_to "Raw Material Invoice Items", raw_material_invoice_items_path %></li>				
 		<li><%= link_to "Equipments", equipments_path %></li>
 		<li><%= link_to "Equipment Categories", equipment_categories_path %></li>
 		<li><%= link_to "Products", products_path %></li>
@@ -13,10 +15,6 @@
 		<li><%= link_to "Bank accounts", bank_accounts_path %></li>
 		<li><%= link_to "Bank transactions", bank_transactions_path %></li>
 		<li><%= link_to "Mark Attendance", mark_attendance_path %></li>
-		<li><%= link_to "Raw Material Invoice", raw_material_invoices_path %></li>
-		<li><a href="">item5</a></li>
-		<li><a href="">item6</a></li>
-		<li><a href="">item7</a></li>
 		<% if user_signed_in? %>
 			<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 		<% else %>

@@ -16,6 +16,6 @@ p
   strong Raw material invoice:
   = @raw_material_invoice_item.raw_material_invoice.id
 
-= link_to 'Edit', edit_raw_material_invoice_item_path(@raw_material_invoice_item)
+= link_to 'Edit', edit_raw_material_invoice_item_path(@raw_material_invoice_item), class: "btn btn-info btn-sm"
 '|
-= link_to 'Back', raw_material_invoice_items_path
+= link_to 'Back', raw_material_invoice_items_path, class: "btn btn-default btn-sm"

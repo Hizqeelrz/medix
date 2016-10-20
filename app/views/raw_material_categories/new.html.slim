@@ -1,8 +1,10 @@
-h1 RawMaterialCategories#new
+h1 New Raw Material Categories
 p Find me in app/views/raw_material_categories/new.html.slim
 
 = simple_form_for @raw_material_category do |f|
 	= f.input :name
 	= f.input :description
 	= f.button :submit, class: "btn btn-success btn-sm"
-br/	
+br/
+
+= link_to "Back", raw_material_categories_path, class: "btn btn-default btn-sm"
