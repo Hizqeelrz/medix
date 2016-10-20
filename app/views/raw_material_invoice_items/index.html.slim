@@ -1,6 +1,6 @@
 h1 Listing raw_material_invoice_items
 
-table
+table.table
   thead
     tr
       th Quantity
@@ -18,8 +18,8 @@ table
         td = raw_material_invoice_item.quantity
         td = raw_material_invoice_item.unit
         td = raw_material_invoice_item.price
-        td = raw_material_invoice_item.raw_material
-        td = raw_material_invoice_item.raw_material_invoice
+        td = raw_material_invoice_item.raw_material.name
+        td = raw_material_invoice_item.raw_material_invoice.id
         td = link_to 'Show', raw_material_invoice_item
         td = link_to 'Edit', edit_raw_material_invoice_item_path(raw_material_invoice_item)
         td = link_to 'Destroy', raw_material_invoice_item, data: {:confirm => 'Are you sure?'}, :method => :delete

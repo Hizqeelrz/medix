@@ -11,10 +11,10 @@ p
   = @raw_material_invoice_item.price
 p
   strong Raw material:
-  = @raw_material_invoice_item.raw_material
+  = @raw_material_invoice_item.raw_material.name
 p
   strong Raw material invoice:
-  = @raw_material_invoice_item.raw_material_invoice
+  = @raw_material_invoice_item.raw_material_invoice.id
 
 = link_to 'Edit', edit_raw_material_invoice_item_path(@raw_material_invoice_item)
 '|

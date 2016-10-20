@@ -6,7 +6,7 @@
     = f.input :unit
     = f.input :price
     = f.association :raw_material
-    = f.association :raw_material_invoice
+    = f.association :raw_material_invoice, collection: RawMaterialInvoice.all.map {|i| [i.id]}
 
   .form-actions
     = f.button :submit
