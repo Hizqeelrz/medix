@@ -108,7 +108,14 @@ ActiveRecord::Schema.define(version: 20161019135010) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipment_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "equipments", force: :cascade do |t|
     t.string   "name"
     t.string   "make"
     t.string   "model"
@@ -121,14 +128,7 @@ ActiveRecord::Schema.define(version: 20161019135010) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "equipment", ["vendor_id"], name: "index_equipment_on_vendor_id", using: :btree
-
-  create_table "equipment_categories", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+  add_index "equipments", ["vendor_id"], name: "index_equipments_on_vendor_id", using: :btree
 
   create_table "expense_categories", force: :cascade do |t|
     t.string   "name"
@@ -299,7 +299,7 @@ ActiveRecord::Schema.define(version: 20161019135010) do
   add_foreign_key "bank_accounts", "users"
   add_foreign_key "bank_transactions", "bank_accounts"
   add_foreign_key "bank_transactions", "users"
-  add_foreign_key "equipment", "vendors"
+  add_foreign_key "equipments", "vendors"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "clients"

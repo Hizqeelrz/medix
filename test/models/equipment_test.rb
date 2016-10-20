@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: equipment
+# Table name: equipments
 #
 #  id         :integer          not null, primary key
 #  name       :string
@@ -16,11 +16,11 @@
 #
 # Indexes
 #
-#  index_equipment_on_vendor_id  (vendor_id)
+#  index_equipments_on_vendor_id  (vendor_id)
 #
 # Foreign Keys
 #
-#  fk_rails_2cf3063014  (vendor_id => vendors.id)
+#  fk_rails_59cdc1fcb6  (vendor_id => vendors.id)
 #
 
 require 'test_helper'
