@@ -5,8 +5,20 @@ p Find me in app/views/raw_materials/index.html.slim
 br/
 br/
 
-.raw_materials
-	- @raw_materials.each do |raw_material|
-		.raw_material
-			.name = raw_material.name
-			.edit = link_to "Edit", edit_raw_material_path(raw_material), class: "btn btn-default btn-sm"
+table.table.table-striped
+	thead
+		tr
+			th Name
+			th Raw Material Category
+			th
+
+	tbody
+		- @raw_materials.each do |raw_material|
+			tr
+				td = raw_material.name
+				td = raw_material.raw_material_category.name if raw_material.raw_material_category
+				td
+					.btn-group
+						= link_to 'Show', raw_material, class: "btn btn-default btn-xs"
+						= link_to 'Edit', edit_raw_material_path(raw_material), class: "btn btn-info btn-xs"
+						= link_to 'Destroy', raw_material, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
