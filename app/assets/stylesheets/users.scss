@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user {
+users.index{
+
+	.user {
 	font-size: 12px;
 /*	color: #777;*/
 	display: inline-block;
@@ -18,20 +20,23 @@
 	.image { 
 		margin: 0 auto;
 	  width: 100px; 
-	}
+		}
 	.name {
 		font-size: 14px;
 		font-weight: bold;
 		text-transform: uppercase;
 		color: #444;
 		margin-top: 10px;
+		}
 	}
-}
-
-.user:hover {
-	border-bottom: 2px solid #F6B352;
-	box-shadow: 0 0 10px #888;
-	transform: scale(1.1);
-	background-color: #D9D4CF;
-	color: #333030;
+	.user:hover {
+		border-bottom: 2px solid #F6B352;
+		box-shadow: 0 0 10px #888;
+		transform: scale(1.1);
+		background-color: #D9D4CF;
+		color: #333030;
+		.name{
+			color: #ccc;
+		}
+	}
 }

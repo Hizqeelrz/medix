@@ -14,7 +14,7 @@
 	  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 	  <%= csrf_meta_tags %>
 	</head>
-	<body>
+	<body class="<%= params[:controller] + " " + params[:action] %>">
 		<% if user_signed_in? %>
 			<%= render 'shared/nav_left' %>
 			<%#= render 'shared/navigation' %>
