@@ -9,7 +9,7 @@
     		= f.simple_fields_for :raw_material_invoice_items do |item|
     			= render "raw_material_invoice_item_fields", f: item
     		.links        
-    			= link_to_add_association "add", f, :raw_material_invoice_items, class: "btn btn-primary btn-sm"
+    			= link_to_add_association "add", f, :raw_material_invoice_items, class: "btn btn-primary btn-xs"
   br/        	
 
   .form-actions
