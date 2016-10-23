@@ -1,6 +1,6 @@
 .nested_form
-	= f.association :raw_material
-	= f.input :quantity
-	= f.input :unit
-	= f.input :price
+	= f.association :raw_material, label: false, prompt: "Select Raw Material"
+	= f.input :quantity, label: false, placeholder: "Quantity"
+	= f.input :unit, label: false, placeholder: "Unit"
+	= f.input :price, label: false, placeholder: "Price"
 	= link_to_remove_association "remove", f, class: "btn btn-danger btn-sm"
