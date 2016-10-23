@@ -1,8 +1,8 @@
 .nested-fields
-	= f.input :product_id, collection: @products, label: false, placeholder: "Select product"
+	= f.input :product, collection: @products, label: false, placeholder: "Select product"
 	= f.input :quantity, label: false, placeholder: "Quantity"
 	= f.input :price_per_unit, label: false, placeholder: "Price Per Unit"
-	= f.input :total_price, label: false, placeholder: "Total Price"
+	= f.input :total_price, label: false, placeholder: "Total Price", disabled: true
 	= link_to_remove_association "remove", f, class: "btn btn-danger btn-xs"
 	br
 	br

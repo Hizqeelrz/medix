@@ -4,7 +4,7 @@ h1 New Order
 	= f.association :client
 	h3 Products
 	#products
-		.form_inline
+		.form-inline
 			= f.simple_fields_for :order_products do |order_product|
 				= render "order_product_fields", f: order_product
 			.links
@@ -13,7 +13,7 @@ h1 New Order
 			= f.button :submit, class: "btn btn-success btn-sm"
 
 javascript:
-	$(document).on('ready page:load change' function(){
+	$(document).on('ready page:load change', function(){
 		$('.order_order_products_price_per_unit input').on('keyup', function(e){
 			var $row = $(this).parents('.nested-fields'),
 					$price = $(this),
