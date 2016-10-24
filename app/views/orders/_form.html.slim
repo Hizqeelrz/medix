@@ -2,6 +2,8 @@ h1 New Order
 
 = simple_form_for @order do |f|
 	= f.association :client
+	= f.input :lat, as: :hidden
+	= f.input :lon, as: :hidden
 	h3 Products
 	#products
 		.form-inline
@@ -26,6 +28,28 @@ javascript:
 			
 		});
 	})
+
+
+	$(document).on('page:load change', function(){
+		function getLocation() {
+			if (navigator.geoLocation) {
+				navigator.geoLocation.getCurrentPosition(getPosition);
+			} else {
+				// Geolocation is not supported by this browser
+			}
+		}
+
+		function getPosition(position) {
+			user_lat = position.coords.latitude;
+			user_long = position.coords.longitude;
+			$('.order_lat input').val(user_lat);
+			$('.order_lon input').val(user_long);
+		}
+
+		getLocation();
+	});
+
+
 
 
 br

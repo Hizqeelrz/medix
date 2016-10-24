@@ -7,6 +7,8 @@
 #  updated_at :datetime         not null
 #  client_id  :integer
 #  user_id    :integer
+#  lat        :float
+#  lon        :float
 #
 # Indexes
 #
