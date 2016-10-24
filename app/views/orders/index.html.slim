@@ -5,5 +5,6 @@ h1 Listing Orders
 - @orders.each do |order|
 	.order
 		.id = order.id
-		.client_name = order.client.name
+		.client_name = order.client.name if order.client
+		.grand_total = order.grandtotal
 		.detail = link_to "Detail", order, class: "btn btn-default btn-sm"

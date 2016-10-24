@@ -3,7 +3,7 @@ h1 Showing Order
 .order
 	.edit = link_to "Edit", edit_order_path(@order), class: "btn btn-info btn-sm"
 	.id = @order.id
-	.client = @order.client.name
+	.client = @order.client.name if @order.client
 	.products
 		- @order.order_products.each do |order_product|
 			.product

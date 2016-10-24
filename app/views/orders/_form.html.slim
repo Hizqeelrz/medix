@@ -11,8 +11,10 @@ h1 New Order
 				= render "order_product_fields", f: order_product
 			.links
 				= link_to_add_association "add", f, :order_products, class: "btn btn-primary btn-xs"
-			br/	
-			= f.button :submit, class: "btn btn-success btn-sm"
+	= f.input :grandtotal
+	br/
+	br/	
+	= f.button :submit, class: "btn btn-success btn-sm"
 
 javascript:
 	$(document).on('ready page:load change', function(){
@@ -20,14 +22,19 @@ javascript:
 			var $row = $(this).parents('.nested-fields'),
 					$price = $(this),
 					$quantity = $row.find('.order_order_product_quantity input')
-					$total_price = $row.find('.order_order_product_total_price input');
+					$total_price = $row.find('.order_order_product_total_price input'),
+					$grand_total = 0;
 
 			$total_price.val(
 				$quantity.val() * $price.val()
 			);
+			$('.order_order_products_total_price input').each(function(){
+				$grand_total += Number($(this).val());
+				$('.order_grandtotal input').val($grand_total);
+			});
 			
 		});
-	})
+	});
 
 
 	$(document).on('page:load change', function(){

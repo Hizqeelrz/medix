@@ -9,6 +9,7 @@
 #  user_id    :integer
 #  lat        :float
 #  lon        :float
+#  grandtotal :integer
 #
 # Indexes
 #
