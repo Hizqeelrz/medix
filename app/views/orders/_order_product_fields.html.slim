@@ -2,7 +2,8 @@
 	= f.input :product_id, collection: @products, label: false, placeholder: "Select product"
 	= f.input :quantity, label: false, placeholder: "Quantity"
 	= f.input :price_per_unit, label: false, placeholder: "Price Per Unit"
-	= f.input :total_price, label: false, placeholder: "Total Price"
+	= f.input :total_price, label: false, placeholder: "Total price", as: :hidden
+	= text_field_tag :total_price1, "", placeholder: "Total price", class: "form-control", disabled: true
 	= link_to_remove_association "remove", f, class: "btn btn-danger btn-xs"
 	br
 	br
