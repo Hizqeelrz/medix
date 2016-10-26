@@ -42,6 +42,20 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+  def update_areas
+    @areas = Area.where(province_id: params[:province_id]).all
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update_cities
+    @cities = City.where(area_id: params[:area_id]).all
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def client_params
   	params.require(:client).permit(:name, :phone, :email, :website, :company, :address, :city, :state, :country)
   end
