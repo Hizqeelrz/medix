@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024213132) do
+ActiveRecord::Schema.define(version: 20161026111226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,12 +101,16 @@ ActiveRecord::Schema.define(version: 20161024213132) do
     t.string   "website"
     t.string   "company"
     t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "province_id"
+    t.integer  "area_id"
+    t.integer  "city_id"
   end
+
+  add_index "clients", ["area_id"], name: "index_clients_on_area_id", using: :btree
+  add_index "clients", ["city_id"], name: "index_clients_on_city_id", using: :btree
+  add_index "clients", ["province_id"], name: "index_clients_on_province_id", using: :btree
 
   create_table "equipment_categories", force: :cascade do |t|
     t.string   "name"
@@ -302,6 +306,9 @@ ActiveRecord::Schema.define(version: 20161024213132) do
   add_foreign_key "bank_accounts", "users"
   add_foreign_key "bank_transactions", "bank_accounts"
   add_foreign_key "bank_transactions", "users"
+  add_foreign_key "clients", "areas"
+  add_foreign_key "clients", "cities"
+  add_foreign_key "clients", "provinces"
   add_foreign_key "equipments", "vendors"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
