@@ -12,6 +12,8 @@
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 	  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>		
+
 	  <%= csrf_meta_tags %>
 	</head>
 	<body class="<%= params[:controller] + " " + params[:action] %>">

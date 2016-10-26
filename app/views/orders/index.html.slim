@@ -8,3 +8,4 @@ h1 Listing Orders
 		.client_name = order.client.name if order.client
 		.grand_total = order.grandtotal
 		.detail = link_to "Detail", order, class: "btn btn-default btn-sm"
+		.delete = link_to "Delete", order, data: {confirm: "Are You Sure?"}, method: :delete, class: "btn btn-danger btn-sm"

@@ -27,7 +27,7 @@ class Order < ActiveRecord::Base
 	belongs_to :client
 	belongs_to :user
 
-	has_many :order_products
+	has_many :order_products, dependent: :delete_all
 	has_many :products, through: :order_products
 
 	accepts_nested_attributes_for :order_products, reject_if: :all_blank, allow_destroy: true
