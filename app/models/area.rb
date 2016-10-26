@@ -16,4 +16,5 @@
 class Area < ActiveRecord::Base
 	belongs_to :province
 	has_many :cities
+	has_many :clients
 end

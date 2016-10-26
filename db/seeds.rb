@@ -370,6 +370,6 @@ end
 
 Client.delete_all
 10.times do |n|
-  client = Client.create(name: "Client #{n}", phone: "04237562487", email: "Email#{n}@example.com", website: "Website#{n}google.com", company: "Company #{n}", address: "Address #{n}", city: "City #{n}", state: "karachi #{n}", state: "State #{n}", country: "Country #{n}")
+  client = Client.create(name: "Client #{n}", phone: "04237562487", email: "Email#{n}@example.com", website: "Website#{n}google.com", company: "Company #{n}", address: "Address #{n}"
   puts "#{client.name} added."
 end

@@ -30,4 +30,7 @@
 
 class Client < ActiveRecord::Base
 	has_many :orders
+	belongs_to :city
+	belongs_to :area
+	belongs_to :provinces
 end
