@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
     @provinces = Province.all
     @areas = Area.all
     @cities = City.all
+    @clients = search(@clients)
   end
 
   def new
@@ -59,7 +60,26 @@ class ClientsController < ApplicationController
     end
   end
 
+  private
+
   def client_params
-  	params.require(:client).permit(:name, :phone, :email, :website, :company, :address, :city, :state, :country)
+  	params.require(:client).permit(:name, :phone, :email, :website, :company, :address, :province_id, :area_id, :city_id)
+  end
+
+  def search scope
+    scope = scope
+    if params[:query].presence
+      scope = scope.search_by_name_phone(params[:query])
+    end
+    if params[:query].presence
+      scope = scope.where(province_id: params[:province_id])
+    end
+    if params[:query].presence
+      scope = scope.where(area_id: params[:area_id])
+    end
+    if params[:query].presence
+      scope = scope.where(city_id: params[:city_id])
+    end
+    scope
   end
 end
