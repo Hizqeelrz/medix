@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   resources :cities
   resources :areas
   
-  resources :clients
+  resources :clients do
+    collection do
+      get "update_areas", as: "update_areas"
+      get "update_cities", as: "update_cities"
+    end
+  end
 
   root 'dashboards#dashboard'
 
