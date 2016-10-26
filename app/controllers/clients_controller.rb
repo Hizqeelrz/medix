@@ -1,7 +1,10 @@
 class ClientsController < ApplicationController
 
   def index
-  	@clients = Client.all
+    @clients = Client.order(created_at: :desc)
+    @provinces = Province.all
+    @areas = Area.all
+    @cities = City.all
   end
 
   def new
