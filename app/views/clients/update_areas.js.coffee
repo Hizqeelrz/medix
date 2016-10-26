@@ -1,0 +1,1 @@
+$("#client_area").empty().append("<%= escape_javascript(render @areas) %>").prepend("<option></option>")

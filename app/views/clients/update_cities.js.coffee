@@ -1,0 +1,1 @@
+$("#client_city").empty().append("<%= escape_javascript(render @cities) %>").prepend("<option></option>")
