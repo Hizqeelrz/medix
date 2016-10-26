@@ -8,9 +8,9 @@ p Find me in app/views/clients/new.html.slim
 	= f.input :website
 	= f.input :company
 	= f.input :address
-	= f.input :state, collection: Province.all.map {|p| [p.name.titleize, p.id]}
-	= f.input :area, collection: []
-	= f.input :city, collection: []
+	= f.input :province_id, collection: Province.all.map {|p| [p.name.titleize, p.id]}
+	= f.input :area_id, collection: []
+	= f.input :city_id, collection: []
 
 	= f.button :submit, class: "btn btn-success btn-sm"
 

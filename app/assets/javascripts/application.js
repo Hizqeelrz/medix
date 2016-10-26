@@ -11,11 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery_ujs
 //= require turbolinks
 //= require cocoon
 //= require twitter/typeahead
 //= require moment
 //= require bootstrap-datetimepicker
-//= require_tree .
+
+
+// Deleted//= require_tree . 
