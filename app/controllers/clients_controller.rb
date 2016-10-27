@@ -71,13 +71,13 @@ class ClientsController < ApplicationController
     if params[:query].presence
       scope = scope.search_by_name_phone(params[:query])
     end
-    if params[:query].presence
+    if params[:province_id].presence
       scope = scope.where(province_id: params[:province_id])
     end
-    if params[:query].presence
+    if params[:area_id].presence
       scope = scope.where(area_id: params[:area_id])
     end
-    if params[:query].presence
+    if params[:city_id].presence
       scope = scope.where(city_id: params[:city_id])
     end
     scope
