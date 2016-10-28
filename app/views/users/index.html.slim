@@ -2,11 +2,13 @@ h1 Users#index
 = link_to "New", new_user_path, class: "btn btn-primary btn-sm"
 br/
 br/
-.paginate = paginate @users
+
 .users
 	- @users.each do |user|
 		.user
-			.image = image_tag user.image.url(:thumb), class: "img-circle"
+			.image
+				= link_to user_path(user) do
+					= image_tag user.image.url(:thumb), class: "img-circle"
 			.name = "#{user.first_name} #{user.last_name}"
 			.phone = user.phone
 			.mobile = user.mobile
@@ -15,4 +17,5 @@ br/
 			.email = user.email
 			br/
 			.link = link_to "More Details", user_path(user), class: "btn btn-info btn-xs"
-			hr/
+
+.paginate = paginate @users
