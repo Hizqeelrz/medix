@@ -6,74 +6,71 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Province.delete_all
-Area.delete_all
-City.delete_all
 province = ["punjab", "kpk", "sindh_balochistan"]
 area_punjab = ["lahore","rawalpindi","faisalabad","multan","dera ghazi khan","rahim yar khan","sahiwal","gujranwala","gujrat"]
 area_kpk = ["dera ismail khan","peshawar","abbotabad","sawat","gilgit baltishtan"]
 area_sindh_balochistan = ["hydrabad","sukkar","larkana","nawabshah","karachi"]
 province.each do |p|
-  province = Province.create(name: p)
+  province = Province.find_or_create_by(name: p)
   puts "#{province.name} added ======>"
   case p
   when "punjab"
     area_punjab.each do |a|
-      area = Area.create(name: a, province_id: province.id)
+      area = Area.find_or_create_by(name: a, province_id: province.id)
       puts "#{area.name} -------"
       case a
       when "lahore"
-        ["lahore", "kasur", "sheikhupura", "nankana sahib"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["lahore", "kasur", "sheikhupura", "nankana sahib"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "rawalpindi"
-        ["rawalpindi", "attock", "murree", "chakwal", "taxila"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["rawalpindi", "attock", "murree", "chakwal", "taxila"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "faisalabad"
-        ["faisalabad", "sargodha", "jhang", "toba tek singh", "khoshaab", "chinyot"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["faisalabad", "sargodha", "jhang", "toba tek singh", "khoshaab", "chinyot"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "multan"
-        ["multan", "khanewal", "muzafar_garh", "vehari"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["multan", "khanewal", "muzafar_garh", "vehari"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "rahim yar khan"
-        ["rahim yar khan", "sadiqabad", "bahawalpur", "lodhran"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["rahim yar khan", "sadiqabad", "bahawalpur", "lodhran"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "dera ghazi khan"
-        ["dera ghazi khan", "layyah", "taunsa", "raajan pur"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["dera ghazi khan", "layyah", "taunsa", "raajan pur"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "gujranwala"
-        ["gujranwala", "narowal", "sialkot", "wazirabad"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["gujranwala", "narowal", "sialkot", "wazirabad"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "gujrat"
-        ["gujrat", "mandi bahauddin", "jehlum", "mirpur"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["gujrat", "mandi bahauddin", "jehlum", "mirpur"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "sahiwal"
-        ["sahiwal", "okara", "pakpattan", "bahawal nagar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["sahiwal", "okara", "pakpattan", "bahawal nagar"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       end
     end
   when "kpk"
     area_kpk.each do |a|
-      area = Area.create(name: a, province_id: province.id)
+      area = Area.find_or_create_by(name: a, province_id: province.id)
       puts "#{area.name} added -------"
       case a
       when "peshawar"
-        ["baajor agency", "char sadda", "mardan", "noshehra", "kohat", "para chanaar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["baajor agency", "char sadda", "mardan", "noshehra", "kohat", "para chanaar"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "abbotabad"
-        ["manshera", "batgram", "muzafarabad", "haripur hazara"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["manshera", "batgram", "muzafarabad", "haripur hazara"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "sawat"
-        ["bunair", "shangla", "taimer gran", "butkhaila", "upper dir"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["bunair", "shangla", "taimer gran", "butkhaila", "upper dir"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "dera ismail khan"
-        ["bhakkar", "mianwali", "bannu", "lucky marwat"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["bhakkar", "mianwali", "bannu", "lucky marwat"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "gilgit baltistan"
-        ["basham", "sakardu", "gilgit"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["basham", "sakardu", "gilgit"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       end
     end
   when "sindh_balochistan"
     area_sindh_balochistan.each do |a|
-      area = Area.create(name: a, province_id: province.id)
+      area = Area.find_or_create_by(name: a, province_id: province.id)
       puts "#{area.name} added -------"
       case a
       when "hydrabad"
-        ["hydrabad", "mirpur khaas", "tando adam", "badin"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["hydrabad", "mirpur khaas", "tando adam", "badin"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "sukkhar"
-        ["sukkhar", "khair pur", "ghotki", "kashmor"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["sukkhar", "khair pur", "ghotki", "kashmor"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "larkana"
-        ["larkana", "dadu", "jacobabad"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["larkana", "dadu", "jacobabad"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "nawabshah"
-        ["nawabshah", "noshehro feroz", "saanhgar"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["nawabshah", "noshehro feroz", "saanhgar"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       when "karachi"
-        ["karachi city1", "karachi city2", "karachi city3"].each {|c| City.create(name: c, area_id: area.id); puts "#{c} added"}
+        ["karachi city1", "karachi city2", "karachi city3"].each {|c| City.find_or_create_by(name: c, area_id: area.id); puts "#{c} added"}
       end
     end
   end
@@ -185,13 +182,21 @@ end
 
 
 Vendor.delete_all
-10.times do |n|
-  vendor = Vendor.create(name: "Foley", company: "Company #{n}", phone: "004478965846242", mobile: "03149214714", email: "vendor#{n}@medix.com", address: "10 downing street London", city: "Lahore", state: "Punjab")
-  puts "#{vendor.company} added."
+100.times do |n|
+  vendor = Vendor.create(
+    name: Faker::Name.name,
+    company: Faker::Company.name,
+    phone: Faker::PhoneNumber.phone_number,
+    mobile: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.street_address,
+    email: Faker::Internet.free_email,
+    city: "Lahore",
+    state: "Punjab"
+    )
 end
 
 RawMaterial.delete_all
-10.times do |n|
+50.times do |n|
   raw_material = RawMaterial.create(name: "Raw Material #{n}")
   puts "#{raw_material.name} added."
 end
@@ -215,7 +220,7 @@ ProductIngrediant.delete_all
 end
 
 Client.delete_all
-100.times do |n|
+200.times do |n|
   client = Client.create(
     name: Faker::Name.name,
     phone: Faker::PhoneNumber.phone_number,
@@ -224,7 +229,8 @@ Client.delete_all
     company: Faker::Company.name,
     address: Faker::Address.street_address,
     # province_id: rand(1..2),
-    # area_id: rand(1..19)
+    # area_id: rand(1..19),
+    city_id: rand(1066..1136)
     )
   puts "#{n} ---> #{client.name} | #{client.company} added."
 end
