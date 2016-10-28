@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
     @provinces = Province.all
     @areas = Area.all
     @cities = City.all
-    @clients = search(@clients)
+    @clients = search(@clients).page(params[:page]).per(30)
   end
 
   def new
