@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
 
 	enum role: [:ceo, :director_marketing, :managing_director, :marketing_manager, :national_sales_manager, :sales_manager, :area_sales_manager, :sales_officer, :plant_manager, :production_manager, :production_incharge, :quality_control_manager, :quality_control_assistant, :head_accountant, :assistant_accountant, :tablet_technician, :syrup_technician, :tablet_coating_technician, :extract_technician, :cosmatics_technician, :packing_staff]
 
+  include PgSearch
+  pg_search_scope :search_by_name_phone, :against => [:first_name, :last_name, :phone, :mobile, :address]
+
+
   has_many :attendances
 	has_many :orders
 	belongs_to :boss, class_name: "User"

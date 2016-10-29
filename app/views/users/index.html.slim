@@ -1,7 +1,18 @@
 h1 Users#index
 = link_to "New", new_user_path, class: "btn btn-primary btn-sm"
-br/
-br/
+br
+br
+
+= form_tag users_path, method: :get, class: "form-inline" do
+	= text_field_tag :query, params[:query], class: "form-control", placeholder: "Keyword...."
+	= select_tag :role, options_for_select(User.roles, params[:role]), class: "form-control", prompt: "Select role"
+	= select_tag :province_id, options_from_collection_for_select(@provinces, "id", "name", params[:province_id]), class: "form-control", prompt: "Select Province"
+	= select_tag :area_id, options_from_collection_for_select(@areas, "id", "name", params[:area_id]), class: "form-control", prompt: "Select Area"
+	= select_tag :city_id, options_from_collection_for_select(@cities, "id", "name", params[:city_id]), class: "form-control", prompt: "Select City"
+	= submit_tag :submit, class: "btn btn-success"
+
+br
+br
 
 .users
 	- @users.each do |user|
