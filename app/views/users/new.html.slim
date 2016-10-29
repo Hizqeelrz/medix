@@ -24,9 +24,9 @@ h1 Create User
 	= f.input :password
 	= f.input :password_confirmation
 	= f.input :role, collection: User.roles.keys.map { |role| [role.titleize,role] }
-	= f.input :job_province, collection: Province.all.map { |p| [p.name.titleize, p.id] }
-	= f.input :job_area, collection: []
-	= f.input :job_city, collection: []
+	= f.input :province_id, collection: Province.all.map { |p| [p.name.titleize, p.id] }
+	= f.input :area_id, collection: []
+	= f.input :city_id, collection: []
 	= f.association :boss, collection: User.all.map { |u| [u.email, u.id] }
 	= f.button :submit, class: "btn btn-success"
 br/	

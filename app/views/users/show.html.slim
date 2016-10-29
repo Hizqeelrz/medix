@@ -1,23 +1,23 @@
 h1 Showing User
 
 .user
-	.first_name = @user.first_name
-	.last_name = @user.last_name
-	.gender = user_gender(@user.gender)
-	.dob = @user.dob
-	.nic = @user.nic
-	.address = @user.address
-	.city = @user.city
-	.state = @user.state
-	.phone = @user.phone
-	.mobile = @user.mobile
-	.marital_status = marital_status(@user.marital_status)
-	.basic_salary = @user.basic_salary
-	.qualification = qualification(@user.qualification)
-	.role = @user.role
-	.job_province = @user.job_province if @user.job_province
-	.boss = @user.boss.first_name if @user.boss
-	.email = @user.email
+	.first_name = "First Name: #{@user.first_name}"
+	.last_name = "Last Name: #{@user.last_name}"
+	.gender = "Gender: #{user_gender(@user.gender)}"
+	.dob = "Dob: #{@user.dob}"
+	.nic = "NIC: #{@user.nic}"
+	.address = "Address: #{@user.address}"
+	.city = "City: #{@user.city}"
+	.state = "State: #{@user.state}"
+	.phone = "Phone: #{@user.phone}"
+	.mobile = "Mobile: #{@user.mobile}"
+	.marital_status = "Marital Status: #{marital_status(@user.marital_status)}"
+	.basic_salary = "Salary: #{@user.basic_salary}"
+	.qualification = "Qualification: #{qualification(@user.qualification)}"
+	.role = "Role: #{@user.role}"
+	.job_province = "Province: #{@user.province_id if @user.province_id}"
+	.boss = "Boss: #{@user.boss.first_name if @user.boss}"
+	.email = "Email: #{@user.email}"
 	br/
 	.link = link_to "Edit", edit_user_path, class:"btn btn-info btn-xs"
 	hr/
