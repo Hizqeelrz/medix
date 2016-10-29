@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026111226) do
+ActiveRecord::Schema.define(version: 20161029171752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,20 +270,23 @@ ActiveRecord::Schema.define(version: 20161026111226) do
     t.integer  "basic_salary"
     t.integer  "qualification"
     t.integer  "boss_id"
-    t.string   "job_province"
-    t.string   "job_area"
-    t.string   "job_city"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "province_id"
+    t.integer  "area_id"
+    t.integer  "city_id"
   end
 
+  add_index "users", ["area_id"], name: "index_users_on_area_id", using: :btree
   add_index "users", ["basic_salary"], name: "index_users_on_basic_salary", using: :btree
   add_index "users", ["boss_id"], name: "index_users_on_boss_id", using: :btree
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
   add_index "users", ["marital_status"], name: "index_users_on_marital_status", using: :btree
+  add_index "users", ["province_id"], name: "index_users_on_province_id", using: :btree
   add_index "users", ["qualification"], name: "index_users_on_qualification", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role"], name: "index_users_on_role", using: :btree
@@ -321,4 +324,7 @@ ActiveRecord::Schema.define(version: 20161026111226) do
   add_foreign_key "raw_material_invoice_items", "raw_materials"
   add_foreign_key "raw_material_invoices", "vendors"
   add_foreign_key "raw_materials", "raw_material_categories"
+  add_foreign_key "users", "areas"
+  add_foreign_key "users", "cities"
+  add_foreign_key "users", "provinces"
 end
