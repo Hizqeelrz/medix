@@ -15,7 +15,5 @@ br/
 			.role = user.role
 			.boss = user.boss.first_name if user.boss
 			.email = user.email
-			br/
-			.link = link_to "More Details", user_path(user), class: "btn btn-info btn-xs"
 
 .paginate = paginate @users
