@@ -1,25 +1,25 @@
 $(document).on('ready page:load', function() {
 
-	$(".user_job_province").hide();
-	$(".user_job_area").hide();
-	$(".user_job_city").hide();
+	$(".users.new .user_province_id").hide();
+	$(".users.new .user_area_id").hide();
+	$(".users.new .user_city_id").hide();
 	$('#user_role').on("change", function() {
 		if($(this).val() == "sales_manager") {
-			$(".user_job_area").slideUp();
-			$(".user_job_city").slideUp();
-			$(".user_job_province").slideDown();
+			$(".user_area_id").slideUp();
+			$(".user_city_id").slideUp();
+			$(".user_province_id").slideDown();
 		} else if ($(this).val() == "area_sales_manager") {
-			$(".user_job_area").slideDown();
-			$(".user_job_province").slideDown();
-			$(".user_job_city").slideUp();
+			$(".user_area_id").slideDown();
+			$(".user_province_id").slideDown();
+			$(".user_city_id").slideUp();
 		} else if ($(this).val() == "sales_officer") {
-			$(".user_job_province").slideDown();
-			$(".user_job_area").slideDown();
-			$(".user_job_city").slideDown();
+			$(".user_province_id").slideDown();
+			$(".user_area_id").slideDown();
+			$(".user_city_id").slideDown();
 		} else {
-			$(".user_job_province").slideUp();
-			$(".user_job_area").slideUp();
-			$(".user_job_city").slideUp();
+			$(".user_province_id").slideUp();
+			$(".user_area_id").slideUp();
+			$(".user_city_id").slideUp();
 		}
 	});
 
