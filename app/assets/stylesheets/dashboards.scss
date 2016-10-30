@@ -6,45 +6,6 @@ body {
 	height: 100%;
 }
 
-.nav-left {
-	position: fixed;
-	top: 0;
-	left: 0;
-	padding-top: 51px;
-	background-color: #1F252B;
-	height: 100%;
-	width: 15%;
-	padding: 20px 0;
-	overflow-y: scroll;
-	.nav > li > a {
-		border-left: 2px solid #222;
-		color: #999;
-		padding: 5px 15px;
-		margin: 10px 0;
-		font-size: 12px;
-		text-transform: uppercase;
-		letter-spacing: .6px;
-	}
-	.nav > a:hover, .nav > li > a:focus {
-		border-left: 2px solid red;
-		border-radius: 0;
-		background-color: transparent;
-		color: #fff;
-	}
-}
-
-.nav-left,
-.man-container {
-	float: left;
-	vertical-align: top;
-/*	height: 100%;*/
-}
-
-.main-container {
-	position: relative;
-	width: 85%;
-	margin-left: 15%;
-}
 
 .container {
 /*	max-width: 950px;*/
