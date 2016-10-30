@@ -234,3 +234,13 @@ Client.delete_all
     )
   puts "#{n} ---> #{client.name} | #{client.company} added."
 end
+
+Order.delete_all
+100.times do |n|
+  order = Order.create(
+    client_id: client.id,
+    grandtotal: rand(1000..1000000),
+    created_at: Faker::Date.between(2.years.ago, Date.today)
+    )
+  puts "#{order.grandtotal} added."
+end

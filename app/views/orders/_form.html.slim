@@ -22,8 +22,8 @@ javascript:
 		$('.order_order_products_price_per_unit input').on('keyup', function(e){
 			var $row = $(this).parents('.nested-fields'),
 					$price = $(this),
-					$quantity = $row.find('.order_order_product_quantity input')
-					$total_price = $row.find('.order_order_product_total_price input'),
+					$quantity = $row.find('.order_order_products_quantity input')
+					$total_price = $row.find('.order_order_products_total_price input'),
 					$grand_total = 0;
 
 			$total_price.val(
@@ -31,11 +31,10 @@ javascript:
 			);
 			$row.find('#total_price1').val($quantity.val() * $price.val());
 
-
 			$('.order_order_products_total_price input').each(function(){
 				$grand_total += Number($(this).val());
 				$('.order_grandtotal input').val($grand_total);
-				$('#grandtoal1').val($grand_total);
+				$('#grandtotal1').val($grand_total);
 			});
 			
 		});
