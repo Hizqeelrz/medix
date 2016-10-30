@@ -69,6 +69,9 @@ class UsersController < ApplicationController
     if params[:role].presence
       scope = scope.where(role: params[:role])
     end
+    if params[:gender].presence
+      scope = scope.where(gender: params[:gender])
+    end
     if params[:province_id].presence
       scope = scope.where(province_id: params[:province_id])
     end

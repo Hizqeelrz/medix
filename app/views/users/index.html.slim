@@ -6,6 +6,7 @@ br
 = form_tag users_path, method: :get, class: "form-inline" do
 	= text_field_tag :query, params[:query], class: "form-control", placeholder: "Keyword...."
 	= select_tag :role, options_for_select(User.roles, params[:role]), class: "form-control", prompt: "Select role"
+	= select_tag :gender, options_for_select(GENDER.map {|k,v| [k.to_s.titleize, v]}, params[:gender]), class: "form-control", prompt: "Select Gender"
 	= select_tag :province_id, options_from_collection_for_select(@provinces, "id", "name", params[:province_id]), class: "form-control", prompt: "Select Province"
 	= select_tag :area_id, options_from_collection_for_select(@areas, "id", "name", params[:area_id]), class: "form-control", prompt: "Select Area"
 	= select_tag :city_id, options_from_collection_for_select(@cities, "id", "name", params[:city_id]), class: "form-control", prompt: "Select City"
