@@ -1,1 +1,1 @@
-$("user_job_city").empty().append("<%= escape_javascript(render @cities) %>").prepend("<option></option>")
+$("user_city_id").empty().append("<%= escape_javascript(render @cities) %>").prepend("<option></option>")

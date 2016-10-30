@@ -55,3 +55,4 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'puma'
 gem 'hashtel'
 gem 'groupdate'
+gem "therubyracer"

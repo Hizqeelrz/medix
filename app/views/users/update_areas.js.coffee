@@ -1,1 +1,1 @@
-$("#user_job_area").empty().append("<%= escape_javascript(render @areas) %>").prepend("<option></option>")
+$("#user_area_id").empty().append("<%= escape_javascript(render @areas) %>").prepend("<option></option>")

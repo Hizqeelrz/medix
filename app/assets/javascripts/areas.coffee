@@ -1,22 +1,22 @@
 $ ->
-  $(document).on 'change', '#user_job_province', (evt) ->
+  $(document).on 'change', '#user_province_id', (evt) ->
     $.ajax 'update_areas',
       type: 'GET'
       dataType: 'script'
       data: {
-        province_id: $("#user_job_province option:selected").val()
+        province_id: $("#user_province_id option:selected").val()
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
         console.log("Areas select OK!")
 
-  $(document).on 'change', '#user_job_area', (evt) ->
+  $(document).on 'change', '#user_area_id', (evt) ->
     $.ajax 'update_cities',
       type: 'GET'
       dataType: 'script'
       data: {
-        area_id: $("#user_job_area option:selected").val()
+        area_id: $("#user_area_id option:selected").val()
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
