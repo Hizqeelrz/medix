@@ -208,7 +208,7 @@ Equipment.delete_all
 end
 
 Product.delete_all
-10.times do |n|
+250.times do |n|
   product = Product.create(name: "Product #{n}")
   puts "#{product.name} added."
 end
