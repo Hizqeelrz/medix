@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
   def index
-  	@orders = Order.all.order(created_at: :desc).page(params[:page]).per(30)
+  	@orders = Order.all.order(created_at: :desc)
     @clients = Client.all
+    @orders = search(@orders).page(params[:page]).per(30)
   end
 
   def new
@@ -51,5 +52,13 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:client_id, :user_id, :lat, :lon, :grandtotal, order_products_attributes: [:id, :product_id, :quantity, :price_per_unit, :total_price, :_destroy])
+  end
+
+  def search scope
+    scope = scope
+    if params[:client_id].presence
+      scope = scope.where(client_id: params[:client_id])
+    end
+    scope
   end
 end

@@ -1,6 +1,16 @@
 h1 Listing Orders
 
 = link_to "New", new_order_path, class: "btn btn-primary btn-sm"
+br
+br
+
+= form_tag orders_path, method: :get, class: "form-inline" do
+	= select_tag :client_id, options_from_collection_for_select(@clients, "id", "name", params[:client_id]), class: "form-control", prompt: "Select Client"
+	= submit_tag :submit, class: "btn btn-success btn-sm"
+
+
+br
+
 
 table.table
 	thead
@@ -8,6 +18,7 @@ table.table
 		th Client Name
 		th Grand Total
 		th State
+		th
 	tbody
 		- @orders.each do |order|
 			tr
