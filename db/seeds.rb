@@ -219,6 +219,7 @@ ProductIngrediant.delete_all
   puts "#{product_ingrediant.quantity} added."
 end
 
+Order.delete_all
 Client.delete_all
 200.times do |n|
   client = Client.create(
@@ -232,15 +233,13 @@ Client.delete_all
     # area_id: rand(1..19),
     city_id: rand(1066..1136)
     )
+  100.times do |n|
+    order = Order.create(
+      client_id: client.id,
+      grandtotal: rand(1000..1000000),
+      created_at: Faker::Date.between(2.years.ago, Date.today)
+      )
+    puts "#{order.grandtotal} added."
+  end
   puts "#{n} ---> #{client.name} | #{client.company} added."
-end
-
-Order.delete_all
-100.times do |n|
-  order = Order.create(
-    client_id: client.id,
-    grandtotal: rand(1000..1000000),
-    created_at: Faker::Date.between(2.years.ago, Date.today)
-    )
-  puts "#{order.grandtotal} added."
 end

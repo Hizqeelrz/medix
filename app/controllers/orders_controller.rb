@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
   def index
-  	@orders = Order.all
+  	@orders = Order.all.order(created_at: :desc).page(params[:page]).per(30)
+    @clients = Client.all
   end
 
   def new
