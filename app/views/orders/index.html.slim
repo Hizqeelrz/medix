@@ -2,10 +2,19 @@ h1 Listing Orders
 
 = link_to "New", new_order_path, class: "btn btn-primary btn-sm"
 
-- @orders.each do |order|
-	.order
-		.id = order.id
-		.client_name = order.client.name if order.client
-		.grand_total = order.grandtotal
-		.detail = link_to "Detail", order, class: "btn btn-default btn-sm"
-		.delete = link_to "Delete", order, data: {confirm: "Are You Sure?"}, method: :delete, class: "btn btn-danger btn-sm"
+table.table
+	thead
+		th Order Id
+		th Client Name
+		th Grand Total
+		th State
+	tbody
+		- @orders.each do |order|
+			tr
+				td = order.id
+				td = order.client.name if order.client
+				td = order.grandtotal
+				td N/A
+				td = link_to "Detail", order_path(order)
+
+.paginate = paginate @orders				

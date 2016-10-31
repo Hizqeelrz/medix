@@ -2,8 +2,8 @@ h1 Showing Order
 
 .order
 	.edit = link_to "Edit", edit_order_path(@order), class: "btn btn-info btn-sm"
-	.id = @order.id
-	.client = @order.client.name if @order.client
+	h3 = @order.id
+	h4 = @order.client.name if @order.client
 
 	table.table
 		thead
