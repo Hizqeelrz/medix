@@ -6,9 +6,11 @@
 #  vendor_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  total      :integer
 #
 # Indexes
 #
+#  index_raw_material_invoices_on_total      (total)
 #  index_raw_material_invoices_on_vendor_id  (vendor_id)
 #
 # Foreign Keys

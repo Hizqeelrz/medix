@@ -21,6 +21,7 @@ table.table
 		th Client Name
 		th Client Phone
 		th Grand Total
+		th Taken by
 		th State
 		th
 	tbody
@@ -31,6 +32,7 @@ table.table
 				td = order.client.name if order.client
 				td = order.client.phone
 				td = order.grandtotal
+				td = order.user.full_name if order.user
 				td = Order.states.key(order.state)
 				td = link_to "Detail", order_path(order)
 

@@ -8,15 +8,19 @@ br/
 table.table.table-striped
   thead
     tr
+      th ID
+      th Date
       th Vendor
-      th
-      th
+      th Total
       th
 
   tbody
     - @raw_material_invoices.each do |raw_material_invoice|
       tr
+        td = raw_material_invoice.id
+        td = raw_material_invoice.created_at
         td = raw_material_invoice.vendor.name
+        td = raw_material_invoice.total
         td
           .btn-group
              = link_to 'Show', raw_material_invoice, class: "btn btn-default btn-xs"
