@@ -26,6 +26,8 @@
 
 class Order < ActiveRecord::Base
 
+	enum states: [:in_accounts, :in_production, :delievered, :on_hold, :canceled]
+
 	belongs_to :client
 	belongs_to :user
 

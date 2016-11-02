@@ -6,6 +6,7 @@ br
 
 = form_tag orders_path, method: :get, class: "form-inline" do
 	= select_tag :client_id, options_from_collection_for_select(@clients, "id", "name", params[:client_id]), class: "form-control", prompt: "Select Client"
+	= select_tag :state, options_for_select(Order.states, params[:state]), class: "form-control", prompt: "Select State"
 	= submit_tag :submit, class: "btn btn-success btn-sm"
 
 
@@ -15,7 +16,9 @@ br
 table.table
 	thead
 		th Order Id
+		th Order Date
 		th Client Name
+		th Client Phone
 		th Grand Total
 		th State
 		th
@@ -23,9 +26,11 @@ table.table
 		- @orders.each do |order|
 			tr
 				td = order.id
+				td = order.created_at.strftime("%e %B, %Y at %I:%M %p")
 				td = order.client.name if order.client
+				td = order.client.phone
 				td = order.grandtotal
-				td N/A
+				td = Order.states.key(order.state)
 				td = link_to "Detail", order_path(order)
 
 .paginate = paginate @orders				

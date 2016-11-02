@@ -59,6 +59,9 @@ class OrdersController < ApplicationController
     if params[:client_id].presence
       scope = scope.where(client_id: params[:client_id])
     end
+    if params[:state].presence
+      scope = scope.where(state: params[:state])
+    end
     scope
   end
 end
