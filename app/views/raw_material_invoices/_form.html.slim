@@ -10,7 +10,25 @@
     			= render "raw_material_invoice_item_fields", f: item
     		.links        
     			= link_to_add_association "add", f, :raw_material_invoice_items, class: "btn btn-primary btn-xs"
-  br/        	
+        br
+        br
+    = text_field_tag :total1, "", placeholder: "Total", class: "form-control", disabled: true
+    = f.input :total, as: :hidden
+    br 
 
   .form-actions
     = f.button :submit, class: "btn btn-success btn-sm"
+
+
+javascript:
+  $(document).on("ready page:load change", function(){
+    $(".raw_material_invoice_raw_material_invoice_items_price input").on("keyup", function(e){
+      var $grand_total = 0;
+      $(".raw_material_invoice_raw_material_invoice_items_price input").each(function(){
+        $grand_total += Number($(this).val());
+        $("#raw_material_invoice_total").val($grand_total);
+        $("#total1").val($grand_total);
+      });
+
+    });
+  });

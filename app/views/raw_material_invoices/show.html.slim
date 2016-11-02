@@ -1,7 +1,7 @@
 p#notice = notice
 
 h3
-	strong id : 
+	strong ID : 
 	= @raw_material_invoice.id
 h4
 	strong Vendor Name : 
@@ -18,10 +18,11 @@ table.table.table-hover
 
 	tbody
 		- @raw_material_invoice.raw_material_invoice_items.each do |invoice|
-			td = invoice.raw_material.name
-			td = invoice.quantity
-			td = invoice.unit
-			td = invoice.price
+			tr
+				td = invoice.raw_material.name
+				td = invoice.quantity
+				td = invoice.unit
+				td = invoice.price
 
 = link_to 'Edit', edit_raw_material_invoice_path(@raw_material_invoice), class: "btn btn-info btn-sm"
 '|
