@@ -10,10 +10,12 @@
 #  lat        :float
 #  lon        :float
 #  grandtotal :integer
+#  state      :integer
 #
 # Indexes
 #
 #  index_orders_on_client_id  (client_id)
+#  index_orders_on_state      (state)
 #  index_orders_on_user_id    (user_id)
 #
 # Foreign Keys
