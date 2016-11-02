@@ -5,6 +5,7 @@ br
 br
 
 = form_tag orders_path, method: :get, class: "form-inline" do
+	= select_tag :user_id, options_from_collection_for_select(@users, "id", "full_name", params[:user_id]), class: "form-control", prompt: "Select User"
 	= select_tag :client_id, options_from_collection_for_select(@clients, "id", "name", params[:client_id]), class: "form-control", prompt: "Select Client"
 	= select_tag :state, options_for_select(Order.states, params[:state]), class: "form-control", prompt: "Select State"
 	= submit_tag :submit, class: "btn btn-success btn-sm"
@@ -15,7 +16,7 @@ br
 
 table.table
 	thead
-		th Order Id
+		th ID
 		th Order Date
 		th Client Name
 		th Client Phone

@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
   def index
-  	@orders = Order.all.order(created_at: :desc)
+    @users = User.all
     @clients = Client.all
+  	@orders = Order.all.order(created_at: :desc)
     @orders = search(@orders).page(params[:page]).per(30)
   end
 
@@ -56,6 +57,9 @@ class OrdersController < ApplicationController
 
   def search scope
     scope = scope
+    if params[:user_id].presence
+      scope = scope.where(user_id: params[:user_id])
+    end
     if params[:client_id].presence
       scope = scope.where(client_id: params[:client_id])
     end
