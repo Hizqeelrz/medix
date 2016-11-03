@@ -2,6 +2,14 @@ h1 All Raw Material Invoices
 br
 
 = link_to 'New Raw material invoice', new_raw_material_invoice_path, class: "btn btn-primary btn-sm"
+br
+br
+
+= form_tag raw_material_invoices_path, method: :get, class: "form-inline" do
+  = select_tag :vendor_id, options_from_collection_for_select(@vendors, "id", "name", params[:vendor_id]), class: "form-control", prompt: "Select Vendor"
+  = submit_tag :submit, class: "btn btn-success"
+
+
 
 br/
 br/

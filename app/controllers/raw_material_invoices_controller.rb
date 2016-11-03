@@ -4,7 +4,9 @@ class RawMaterialInvoicesController < ApplicationController
   # GET /raw_material_invoices
   # GET /raw_material_invoices.json
   def index
-    @raw_material_invoices = RawMaterialInvoice.all
+    @vendors = Vendor.all
+    @raw_material_invoices = RawMaterialInvoice.all.order(created_at: :desc)
+    @raw_material_invoices = search(@raw_material_invoices)
   end
 
   # GET /raw_material_invoices/1
@@ -70,5 +72,13 @@ class RawMaterialInvoicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def raw_material_invoice_params
       params.require(:raw_material_invoice).permit(:vendor_id, :total, raw_material_invoice_items_attributes: [:id, :quantity, :price, :unit, :raw_material_id, :_destroy])
+    end
+
+    def search scope
+      scope = scope
+      if params[:vendor_id].presence
+        scope = scope.where(vendor_id: params[:vendor_id])
+      end
+      scope
     end
 end
