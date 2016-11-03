@@ -1,6 +1,10 @@
 h1 All Bank Transactions
 br
 
+= link_to 'New Bank transaction', new_bank_transaction_path, class: "btn btn-primary btn-sm"
+br
+br
+
 table.table
   thead
     tr
@@ -24,7 +28,3 @@ table.table
              = link_to 'Show', bank_transaction, class: "btn btn-default btn-xs"
              = link_to 'Edit', edit_bank_transaction_path(bank_transaction), class: "btn btn-info btn-xs"
              = link_to 'Destroy', bank_transaction, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
-
-br
-
-= link_to 'New Bank transaction', new_bank_transaction_path, class: "btn btn-primary btn-sm"
