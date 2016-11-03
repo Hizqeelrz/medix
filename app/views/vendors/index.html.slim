@@ -4,6 +4,14 @@ br
 br
 br
 
+= form_tag vendors_path, method: :get, class: "form-inline" do
+  = text_field_tag :query, params[:query], class: "form-control", placeholder: "Search...."
+  = submit_tag :submit, class: "btn btn-success"
+
+
+br
+br
+
 table.table.table-hover
   thead
     tr
@@ -24,4 +32,6 @@ table.table.table-hover
           .btn-group
             = link_to 'Show', vendor, class: "btn btn-default btn-xs"
             = link_to 'Edit', edit_vendor_path(vendor), class: "btn btn-info btn-xs"
-            = link_to 'Destroy', vendor, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"        
+            = link_to 'Destroy', vendor, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
+
+.paginate = paginate @vendors            

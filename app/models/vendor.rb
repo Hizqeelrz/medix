@@ -16,6 +16,11 @@
 #
 
 class Vendor < ActiveRecord::Base
+
+	include PgSearch
+	pg_search_scope :search_by_name_phone, :against => [:name, :phone, :company]
+
+
 	has_many :raw_materials
 	has_many :equipments
 end

@@ -4,7 +4,8 @@ class VendorsController < ApplicationController
   # GET /vendors
   # GET /vendors.json
   def index
-    @vendors = Vendor.all
+    @vendors = Vendor.all.order(created_at: :desc)
+    @vendors = search(@vendors).page(params[:page]).per(30)
   end
 
   # GET /vendors/1
@@ -70,5 +71,13 @@ class VendorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def vendor_params
       params.require(:vendor).permit(:name, :company, :phone, :mobile, :address, :email, :city, :state)
+    end
+
+    def search scope
+      scope = scope
+      if params[:query].presence
+        scope = scope.search_by_name_phone(params[:query])
+      end
+      scope
     end
 end
