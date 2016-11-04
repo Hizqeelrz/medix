@@ -4,7 +4,11 @@ class BankTransactionsController < ApplicationController
   # GET /bank_transactions
   # GET /bank_transactions.json
   def index
+    @bank_accounts = BankAccount.all
+    @types = BankTransaction::TRANSACTION_TYPE.map {|k,v| [k,v]}
+
     @bank_transactions = BankTransaction.all.page(params[:page]).per(30)
+    @bank_transactions = search(@bank_transactions)
   end
 
   # GET /bank_transactions/1
@@ -70,5 +74,16 @@ class BankTransactionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_transaction_params
       params.require(:bank_transaction).permit(:bank_account_id, :user_id, :amount, :transaction_type, :check_number)
+    end
+
+    def search scope
+      scope = scope
+      if params[:bank_account_id].presence
+        scope = scope.where(bank_account_id: params[:bank_account_id])
+      end
+      if params[:transaction_type].presence
+        scope = scope.where(transaction_type: params[:transaction_type])
+      end
+      scope
     end
 end
