@@ -189,9 +189,7 @@ Vendor.delete_all
     phone: Faker::PhoneNumber.phone_number,
     mobile: Faker::PhoneNumber.cell_phone,
     address: Faker::Address.street_address,
-    email: Faker::Internet.free_email,
-    city: "Lahore",
-    state: "Punjab"
+    email: Faker::Internet.free_email
     )
 end
 
@@ -242,4 +240,25 @@ Client.delete_all
     puts "#{order.grandtotal} added."
   end
   puts "#{n} ---> #{client.name} | #{client.company} added."
+end
+
+BankTransaction.delete_all
+BankAccount.delete_all
+10.times do |n|
+  account = BankAccount.create(
+    account_title: Faker::Name.name,
+    account_number: Faker::Business.credit_card_number,
+    balance: rand(100000..3000000),
+    created_at: Faker::Date.between(2.years.ago, Date.today)
+    )
+  100.times do |n|
+    transaction = BankTransaction.create(
+      bank_account_id: account.id,
+      amount: rand(1000..200000),
+      transaction_type: rand(0..1),
+      created_at: Faker::Date.between(2.years.ago, Date.today)
+      )
+    puts "#{transaction.amount}."
+  end
+  puts "Account added ---> #{account.account_title}."
 end

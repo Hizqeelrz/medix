@@ -5,26 +5,32 @@ br
 br
 br
 
-table.table
+table.table.table-striped
   thead
     tr
+      td ID
+      td Date
       th Bank account
       th Amount
-      th Check number      
       th Transaction type
-      th User      
+      th User
+      th Check number      
       th
 
   tbody
     - @bank_transactions.each do |bank_transaction|
       tr
+        td = bank_transaction.id
+        td = bank_transaction.created_at.strftime("%B %e, %Y at %I:%M %p")
         td = bank_transaction.bank_account.account_title
         td = bank_transaction.amount
-        td = bank_transaction.check_number
         td = BankTransaction::TRANSACTION_TYPE.key(bank_transaction.transaction_type)
-        td = bank_transaction.user.full_name        
+        td = bank_transaction.user.full_name if bank_transaction.user
+        td = bank_transaction.check_number        
         td
           .btn-group
              = link_to 'Show', bank_transaction, class: "btn btn-default btn-xs"
              = link_to 'Edit', edit_bank_transaction_path(bank_transaction), class: "btn btn-info btn-xs"
              = link_to 'Destroy', bank_transaction, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
+
+.paginate = paginate @bank_transactions

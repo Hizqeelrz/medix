@@ -5,7 +5,7 @@ br
 br
 br
 
-table.table
+table.table.table-striped
   thead
     tr
       th Account title
@@ -26,7 +26,7 @@ table.table
         td = bank_account.balance
         td = bank_account.bank_name
         td = bank_account.branch_name
-        td = bank_account.user.full_name
+        td = bank_account.user.full_name if bank_account.user
         td
           .btn-group
              = link_to 'Show', bank_account, class: "btn btn-default btn-xs"

@@ -4,7 +4,7 @@ class BankTransactionsController < ApplicationController
   # GET /bank_transactions
   # GET /bank_transactions.json
   def index
-    @bank_transactions = BankTransaction.all
+    @bank_transactions = BankTransaction.all.page(params[:page]).per(30)
   end
 
   # GET /bank_transactions/1
