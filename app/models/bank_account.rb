@@ -27,4 +27,6 @@
 class BankAccount < ActiveRecord::Base
   belongs_to :user
   has_many :bank_transactions
+
+  validates :account_title, :account_number, :bank_name, :branch_name, presence: true
 end

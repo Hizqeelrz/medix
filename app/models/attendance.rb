@@ -24,4 +24,7 @@
 
 class Attendance < ActiveRecord::Base
   belongs_to :user
+
+  validate :time_in, :user_id, presence: true
+
 end
