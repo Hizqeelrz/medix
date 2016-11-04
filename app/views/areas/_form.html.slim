@@ -6,4 +6,4 @@
     = f.input :province_id, collection: Province.all.map { |p| [p.name.titleize, p.id] }
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-success btn-sm"

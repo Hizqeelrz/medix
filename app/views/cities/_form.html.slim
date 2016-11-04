@@ -6,4 +6,4 @@
     = f.input :area_id, collection: City.all.map { |c| [c.name.titleize, c.id] }
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-success btn-sm"
