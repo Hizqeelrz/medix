@@ -23,6 +23,9 @@
 #
 
 class BankTransaction < ActiveRecord::Base
+
+	TRANSACTION_TYPE = {deposit: 0, withdrawl: 1}
+
   belongs_to :bank_account
   belongs_to :user
 end

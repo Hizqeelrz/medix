@@ -11,7 +11,7 @@ p
   = @bank_transaction.amount
 p
   strong Transaction type:
-  = @bank_transaction.transaction_type
+  = BankTransaction::TRANSACTION_TYPE.key(@bank_transaction.transaction_type)
 p
   strong Check number:
   = @bank_transaction.check_number

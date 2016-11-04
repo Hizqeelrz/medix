@@ -5,7 +5,7 @@
     = f.association :bank_account, collection: BankAccount.all.map {|a| [a.account_title, a.id] }
     = f.association :user, collection: User.all.map {|u| [u.full_name, u.id]}
     = f.input :amount
-    = f.input :transaction_type, collection: ["deposit", "withdrawl"]
+    = f.input :transaction_type, collection: BankTransaction::TRANSACTION_TYPE.map {|k,v| [k,v] }
     = f.input :check_number
 
   .form-actions
