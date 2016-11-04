@@ -19,4 +19,5 @@
 
 class Asset < ActiveRecord::Base
   belongs_to :asset_category
+  validates :name, presence: true
 end
