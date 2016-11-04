@@ -17,4 +17,6 @@ class City < ActiveRecord::Base
 	belongs_to :area
 	has_many :clients
 	has_many :vendors
+
+	validates :name, presence: true
 end

@@ -11,4 +11,6 @@
 class Province < ActiveRecord::Base
 	has_many :areas
 	has_many :clients
+
+	validates :name, presence: true
 end
