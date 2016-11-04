@@ -1,21 +1,22 @@
-h1 Listing provinces
+h1 All provinces
+br
+= link_to 'New Province', new_province_path, class: "btn btn-primary btn-sm"
+br
+br
 
-table
+
+table.table.table-striped
   thead
     tr
       th Name
-      th
-      th
       th
 
   tbody
     - @provinces.each do |province|
       tr
         td = province.name
-        td = link_to 'Show', province
-        td = link_to 'Edit', edit_province_path(province)
-        td = link_to 'Destroy', province, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Province', new_province_path
+        td
+          .btn-group
+             = link_to 'Show', province, class: "btn btn-default btn-xs"
+             = link_to 'Edit', edit_province_path(province), class: "btn btn-info btn-xs"
+             = link_to 'Destroy', province, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
