@@ -33,4 +33,6 @@ class Vendor < ActiveRecord::Base
 	has_many :raw_materials
 	has_many :equipments
 	belongs_to :city
+
+	validates :name, :company, :mobile, :address, presence: true
 end
