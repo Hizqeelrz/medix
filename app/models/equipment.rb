@@ -28,4 +28,6 @@
 
 class Equipment < ActiveRecord::Base
   belongs_to :vendor
+
+  validates :name, :model, :company, presence: true
 end

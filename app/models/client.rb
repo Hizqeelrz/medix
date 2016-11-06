@@ -36,4 +36,6 @@ class Client < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :area
 	belongs_to :provinces
+
+	validates :name, :email, :company, :phone, :province_id, :city_id, presence: true
 end
