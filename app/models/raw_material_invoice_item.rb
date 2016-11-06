@@ -25,4 +25,6 @@
 class RawMaterialInvoiceItem < ActiveRecord::Base
   belongs_to :raw_material
   belongs_to :raw_material_invoice
+
+  validates :quantity, :unit, :price, :raw_material_id, presence: true
 end
