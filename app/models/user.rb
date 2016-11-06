@@ -81,6 +81,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, # :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, :last_name, :email, :role, :nic, :address, :mobile, :qualification, :basic_salary, :boss_id, presence: true
+  
   def full_name
   	"#{self.first_name} #{self.last_name}"
   end
