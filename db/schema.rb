@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103164231) do
+ActiveRecord::Schema.define(version: 20161106141626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,10 +128,12 @@ ActiveRecord::Schema.define(version: 20161103164231) do
     t.string   "capacity"
     t.string   "life"
     t.integer  "vendor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "equipment_category_id"
   end
 
+  add_index "equipments", ["equipment_category_id"], name: "index_equipments_on_equipment_category_id", using: :btree
   add_index "equipments", ["vendor_id"], name: "index_equipments_on_vendor_id", using: :btree
 
   create_table "expense_categories", force: :cascade do |t|
@@ -319,6 +321,7 @@ ActiveRecord::Schema.define(version: 20161103164231) do
   add_foreign_key "clients", "areas"
   add_foreign_key "clients", "cities"
   add_foreign_key "clients", "provinces"
+  add_foreign_key "equipments", "equipment_categories"
   add_foreign_key "equipments", "vendors"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
