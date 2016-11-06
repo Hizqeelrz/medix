@@ -26,4 +26,6 @@ class Product < ActiveRecord::Base
   has_many :product_ingrediants
 
   accepts_nested_attributes_for :product_ingrediants, reject_if: :all_blank, allow_destroy: true
+
+  validates :name, presence: true
 end

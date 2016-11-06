@@ -24,4 +24,6 @@
 class ProductIngrediant < ActiveRecord::Base
   belongs_to :raw_material
   belongs_to :product
+
+  validates :raw_material_id, :product_id, presence: true
 end
