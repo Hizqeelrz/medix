@@ -12,5 +12,4 @@
 class RawMaterialCategory < ActiveRecord::Base
 	has_many :raw_materials
 
-	validates :name, presence: true
 end
