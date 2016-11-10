@@ -36,5 +36,5 @@ class Order < ActiveRecord::Base
 
 	accepts_nested_attributes_for :order_products, reject_if: :all_blank, allow_destroy: true
 
-	validates :client_id, :user_id, presence: true
+	validates :client_id, presence: true
 end

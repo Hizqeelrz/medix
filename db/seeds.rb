@@ -79,7 +79,7 @@ end
 
 User.delete_all
 
-ceo = User.create!(
+ceo = User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   gender: rand(0..1),
@@ -98,12 +98,12 @@ ceo = User.create!(
   password: "password",
   password_confirmation: "password",
   role: :ceo,
-  image: "http://www.piranhaphotography.com/blog/wp-content/uploads/2010/05/employee-photographer-powerscourt-0543.jpg"
+  image: ""
   )
 puts "#{ceo.email} added"
 
 3.times do
-  user = User.create!(
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: rand(0..1),
@@ -128,7 +128,7 @@ puts "#{ceo.email} added"
 end
 
 20.times do |n|
-  user = User.create!(
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: rand(0..1),
@@ -153,7 +153,7 @@ end
 end
 
 60.times do |n|
-  user = User.create!(
+  user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: rand(0..1),
@@ -183,7 +183,7 @@ end
 
 Vendor.delete_all
 100.times do |n|
-  vendor = Vendor.create!(
+  vendor = Vendor.create(
     name: Faker::Name.name,
     company: Faker::Company.name,
     phone: Faker::PhoneNumber.phone_number,
@@ -195,32 +195,32 @@ end
 
 RawMaterial.delete_all
 50.times do |n|
-  raw_material = RawMaterial.create!(name: "Raw Material #{n}")
+  raw_material = RawMaterial.create(name: "Raw Material #{n}")
   puts "#{raw_material.name} added."
 end
 
 Equipment.delete_all
 10.times do |n|
-  equipment = Equipment.create!(name: "Equipment #{n}", make: "Yamaha", model: "2014", company: "Company #{n}", price: "88000", capacity: "150", life: "7")
+  equipment = Equipment.create(name: "Equipment #{n}", make: "Yamaha", model: "2014", company: "Company #{n}", price: "88000", capacity: "150", life: "7")
   puts "#{equipment.name} added."
 end
 
 Product.delete_all
 250.times do |n|
-  product = Product.create!(name: "Product #{n}")
+  product = Product.create(name: "Product #{n}")
   puts "#{product.name} added."
 end
 
 ProductIngrediant.delete_all
 10.times do |n|
-  product_ingrediant = ProductIngrediant.create!(quantity: 20 + n)
+  product_ingrediant = ProductIngrediant.create(quantity: 20 + n)
   puts "#{product_ingrediant.quantity} added."
 end
 
 Order.delete_all
 Client.delete_all
 200.times do |n|
-  client = Client.create!(
+  client = Client.create(
     name: Faker::Name.name,
     phone: Faker::PhoneNumber.phone_number,
     email: Faker::Internet.free_email,
@@ -229,10 +229,10 @@ Client.delete_all
     address: Faker::Address.street_address,
     # province_id: rand(1..2),
     # area_id: rand(1..19),
-    city_id: rand(1066..1136)
+    city_id: rand(1..71)
     )
   100.times do |n|
-    order = Order.create!(
+    order = Order.create(
       client_id: client.id,
       grandtotal: rand(1000..1000000),
       created_at: Faker::Date.between(2.years.ago, Date.today)
@@ -245,14 +245,16 @@ end
 BankTransaction.delete_all
 BankAccount.delete_all
 10.times do |n|
-  account = BankAccount.create!(
+  account = BankAccount.create(
     account_title: Faker::Name.name,
     account_number: Faker::Business.credit_card_number,
     balance: rand(100000..3000000),
+    bank_name: "Habib Bank",
+    branch_name: Faker::Address.street_name,
     created_at: Faker::Date.between(2.years.ago, Date.today)
     )
   100.times do |n|
-    transaction = BankTransaction.create!(
+    transaction = BankTransaction.create(
       bank_account_id: account.id,
       amount: rand(1000..200000),
       transaction_type: rand(0..1),

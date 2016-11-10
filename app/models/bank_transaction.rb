@@ -29,5 +29,5 @@ class BankTransaction < ActiveRecord::Base
   belongs_to :bank_account
   belongs_to :user
 
-  validates :transaction_type, :check_number, :amount, :bank_account_id, :user_id, presence: true
+  validates :transaction_type, :amount, :bank_account_id, presence: true
 end
