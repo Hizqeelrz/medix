@@ -6,7 +6,7 @@ br
 		= f.input :name
 		h3 Product ingrediants
 		#product_ingrediants
-			.form_inline
+			.form-inline
 				= f.simple_fields_for :product_ingrediants do |product_ingrediant|
 					= render "product_ingrediant_fields", f: product_ingrediant
 				.links

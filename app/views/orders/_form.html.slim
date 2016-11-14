@@ -11,6 +11,7 @@ h1 New Order
 				= render "order_product_fields", f: order_product
 			.links
 				= link_to_add_association "add", f, :order_products, class: "btn btn-primary btn-xs"
+	br			
 	= text_field_tag :grandtotal1, "", placeholder: "Grand total", class: "form-control", disabled: true
 	= f.input :grandtotal, as: :hidden
 	br/
