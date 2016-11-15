@@ -23,7 +23,7 @@ javascript:
 		$('.order_order_products_price_per_unit input').on('keyup', function(e){
 			var $row = $(this).parents('.nested-fields'),
 					$price = $(this),
-					$quantity = $row.find('.order_order_products_quantity input')
+					$quantity = $row.find('.order_order_products_quantity input'),
 					$total_price = $row.find('.order_order_products_total_price input'),
 					$grand_total = 0;
 
@@ -43,9 +43,10 @@ javascript:
 
 
 	$(document).on('page:load change', function(){
+
 		function getLocation() {
-			if (navigator.geoLocation) {
-				navigator.geoLocation.getCurrentPosition(getPosition);
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(getPosition);
 			} else {
 				// Geolocation is not supported by this browser
 			}

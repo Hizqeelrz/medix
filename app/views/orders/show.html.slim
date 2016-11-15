@@ -26,16 +26,16 @@ h1 Showing Order
 javascript:
 	$(document).on('ready page:load', function() {
 		function initialize() {
-			var myLoc = new google.maps.LatLng("#{@order.lat}", "#{@order.lon}");
-			var mapSize = {
-				center:myLoc,
+			var myCenter = new google.maps.LatLng("#{@order.lat}", "#{@order.lon}");
+			var mapProp = {
+				center:myCenter,
 				zoom: 15,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
-			var map = new google.maps.Map(document.getElementById("googleMap"), mapSize);
+			var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
 			var marker=new google.maps.Marker({
-				position:myLoc,
+				position:myCenter,
 			});
 			marker.setMap(map);
 		}

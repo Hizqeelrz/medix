@@ -22,3 +22,5 @@ table.table.table-striped
 						= link_to 'Show', raw_material, class: "btn btn-default btn-xs"
 						= link_to 'Edit', edit_raw_material_path(raw_material), class: "btn btn-info btn-xs"
 						= link_to 'Destroy', raw_material, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-danger btn-xs"
+
+.paginate = paginate @raw_materials						

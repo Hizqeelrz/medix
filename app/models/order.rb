@@ -37,4 +37,13 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :order_products, reject_if: :all_blank, allow_destroy: true
 
 	validates :client_id, presence: true
+
+	# Set State for the Order
+	before_create :set
+
+	def set
+		self.state = 0
+	end
+
+
 end

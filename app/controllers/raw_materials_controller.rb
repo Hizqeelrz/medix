@@ -1,7 +1,7 @@
 class RawMaterialsController < ApplicationController
 
   def index
-  	@raw_materials = RawMaterial.all
+  	@raw_materials = RawMaterial.all.page(params[:page]).per(20)
   end
 
   def new
