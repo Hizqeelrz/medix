@@ -9,10 +9,12 @@ class OrdersController < ApplicationController
 
   def new
   	@order = Order.new
+    @products = Product.all
   end
 
   def create
   	@order = Order.new(order_params)
+    @products = Product.all
 
   	if @order.save
   		redirect_to orders_path
@@ -27,10 +29,12 @@ class OrdersController < ApplicationController
 
   def edit
   	@order = Order.find(params[:id])
+    @products = Product.all
   end
 
   def update
   	@order = Order.find(params[:id])
+    @products = Product.all
 
   	if @order.update(order_params)
   		redirect_to orders_path
