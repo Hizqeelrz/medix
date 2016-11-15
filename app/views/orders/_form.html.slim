@@ -19,50 +19,49 @@ h1 New Order
 	= f.button :submit, class: "btn btn-success btn-sm"
 
 javascript:
-	$(document).on('ready page:load change', function(){
-		$('.order_order_products_price_per_unit input').on('keyup', function(e){
-			var $row = $(this).parents('.nested-fields'),
-					$price = $(this),
-					$quantity = $row.find('.order_order_products_quantity input'),
-					$total_price = $row.find('.order_order_products_total_price input'),
-					$grand_total = 0;
+  $(document).on('ready page:load change', function () {
+    $('.order_order_products_price_per_unit input').on('keyup', function(e){
+      var $row = $(this).parents('.nested-fields'),
+          $price = $(this),
+          $quantity = $row.find('.order_order_products_quantity input'),
+          $total_price = $row.find('.order_order_products_total_price input'),
+          $grand_total = 0;
+      
+      $total_price.val(
+        $quantity.val() * $price.val()
+      );
+      $row.find('#total_price1').val($quantity.val() * $price.val());
 
-			$total_price.val(
-				$quantity.val() * $price.val()
-			);
-			$row.find('#total_price1').val($quantity.val() * $price.val());
-
-			$('.order_order_products_total_price input').each(function(){
-				$grand_total += Number($(this).val());
-				$('.order_grandtotal input').val($grand_total);
-				$('#grandtotal1').val($grand_total);
-			});
-			
-		});
-	});
-
-
-	$(document).on('page:load change', function(){
-
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(getPosition);
-			} else {
-				// Geolocation is not supported by this browser
-			}
-		}
-
-		function getPosition(position) {
-			user_lat = position.coords.latitude;
-			user_long = position.coords.longitude;
-			$('.order_lat input').val(user_lat);
-			$('.order_lon input').val(user_long);
-		}
-
-		getLocation();
-	});
+      $('.order_order_products_total_price input').each(function() {
+        $grand_total += Number($(this).val());
+        $('.order_grandtotal input').val($grand_total);
+        $('#grandtotal1').val($grand_total);
+      });
+      
+    });
+  });
 
 
+
+  $(document).on('page:load change', function () {
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getPosition);
+      } else {
+        // Geolocation is not supported by this browser.
+      }
+    }
+
+    function getPosition(position) {
+      user_lat  = position.coords.latitude;
+      user_long = position.coords.longitude; 
+      $('.order_lat input').val(user_lat);
+      $('.order_lon input').val(user_long);
+    }
+    
+    getLocation();
+  });
 
 
 br

@@ -19,5 +19,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 
-
 // Deleted//= require_tree . 
