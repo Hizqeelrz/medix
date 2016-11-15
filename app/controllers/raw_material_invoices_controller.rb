@@ -6,7 +6,7 @@ class RawMaterialInvoicesController < ApplicationController
   def index
     @vendors = Vendor.all
     @raw_material_invoices = RawMaterialInvoice.all.order(created_at: :desc)
-    @raw_material_invoices = search(@raw_material_invoices)
+    @raw_material_invoices = search(@raw_material_invoices).page(params[:page]).per(30)
   end
 
   # GET /raw_material_invoices/1
