@@ -180,7 +180,7 @@ end
 
 
 
-
+RawMaterialInvoice.delete_all
 Vendor.delete_all
 100.times do |n|
   vendor = Vendor.create(
@@ -189,8 +189,16 @@ Vendor.delete_all
     phone: Faker::PhoneNumber.phone_number,
     mobile: Faker::PhoneNumber.cell_phone,
     address: Faker::Address.street_address,
-    email: Faker::Internet.free_email
+    email: Faker::Internet.free_email,
     )
+  20.times do |n|
+    rm_invoice = RawMaterialInvoice.create(
+      vendor_id: vendor.id,
+      total: rand(1000..100000)
+      )
+    puts "#{rm_invoice.total}"
+  end
+  puts "#{vendor.company} added."
 end
 
 RawMaterial.delete_all
