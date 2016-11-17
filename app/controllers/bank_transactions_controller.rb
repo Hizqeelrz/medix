@@ -8,7 +8,7 @@ class BankTransactionsController < ApplicationController
     @types = BankTransaction::TRANSACTION_TYPE.map {|k,v| [k,v]}
 
     @bank_transactions = BankTransaction.all.page(params[:page]).per(30)
-    @bank_transactions = search(@bank_transactions)
+    @bank_transactions = search(@bank_transactions).order(created_at: :desc)
   end
 
   # GET /bank_transactions/1
