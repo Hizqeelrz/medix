@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:client_id, :user_id, :lat, :lon, :grandtotal, order_products_attributes: [:id, :product_id, :quantity, :price_per_unit, :total_price, :_destroy])
+    params.require(:order).permit(:client_id, :user_id, :lat, :lon, :grandtotal, :state, order_products_attributes: [:id, :product_id, :quantity, :price_per_unit, :total_price, :_destroy])
   end
 
   def search scope
