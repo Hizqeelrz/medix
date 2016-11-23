@@ -2,3 +2,18 @@
 	= @user.role
 .email
 	= @user.email
+
+
+.col-lg-6
+	h2	Deposits
+	= pie_chart BankTransaction.joins(:bank_account).where(transaction_type: 0).group(:'bank_accounts.account_title').sum(:amount)
+.col-lg-6
+	h2 WithDrawl
+	= pie_chart BankTransaction.joins(:bank_account).where(transaction_type: 1).group(:'bank_accounts.account_title').sum(:amount)
+
+h2 All Accounts
+-	BankAccount.all.each do |a|
+	.col-lg-3
+		.name = a.account_title
+		.chart = pie_chart a.bank_transactions.group(:transaction_type).sum(:amount), height: "150px"
+		
