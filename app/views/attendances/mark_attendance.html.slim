@@ -2,7 +2,13 @@ h1 Mark Attendances
 br
 
 - @users.each do |user|
-	.user
-		.name = user.last_name
+	.attendance.text-center
 		.image = image_tag user.image.url(:thumb), class: "img-circle"
-		.role = user.role
+		.name = user.full_name
+		= div_for user
+			-	if user.attendance_status && user.attendance_status.time_out.blank?
+				= link_to "Leave", time_out_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'></i> Waiting...."}, class: "btn btn-danger"
+			- elsif user.attendance_status && !user.attendance_status.time_out.blank?
+				div
+			- else
+				= link_to "Come", time_in_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'</i> Waiting...."}, class: "btn btn-success"

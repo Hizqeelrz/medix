@@ -33,6 +33,10 @@ Rails.application.routes.draw do
       get "update_areas", as: "update_areas"
       get "update_cities", as: "update_cities"
     end
+    member do
+      patch :time_in
+      patch :time_out
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

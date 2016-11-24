@@ -87,5 +87,10 @@ class User < ActiveRecord::Base
   	"#{self.first_name} #{self.last_name}"
   end
 
+  def attendance_status
+    attendance = Attendance.where(time_in: Date.today.beginning_of_day..Date.today.end_of_day, user_id: self.id).first
+
+    attendance
+  end
 
 end
