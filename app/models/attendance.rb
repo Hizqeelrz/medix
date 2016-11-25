@@ -27,4 +27,6 @@ class Attendance < ActiveRecord::Base
 
   validates :time_in, :user_id, presence: true
 
+  self.primary_key = "time_out"
+
 end
