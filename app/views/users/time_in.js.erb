@@ -1,0 +1,1 @@
+$("#user_<%= @user.id %>").html("<%= j(link_to 'Leave', time_out_user_path(@user.id), method: :patch, remote: true,data: {disable_with: '<i class=\'fa fa-refresh fa-spin\'></i> Waiting....'}, class: 'btn btn-danger') %>");

@@ -3,7 +3,7 @@ br
 
 - @users.each do |user|
 	.attendance.text-center
-		.image = image_tag user.image.url(:thumb), class: "img-circle"
+		.img = image_tag user.image.url(:thumb), width: "60px"
 		.name = user.full_name
 		= div_for user
 			-	if user.attendance_status && user.attendance_status.time_out.blank?
@@ -11,4 +11,4 @@ br
 			- elsif user.attendance_status && !user.attendance_status.time_out.blank?
 				div
 			- else
-				= link_to "Come", time_in_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'</i> Waiting...."}, class: "btn btn-success"
+				= link_to "Come", time_in_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'></i> Waiting...."}, class: "btn btn-success"
