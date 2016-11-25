@@ -55,6 +55,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def time_in
+    @user = User.find(params[:id])
+    @attendance = @user.create_time_in
+    sleep rand(1..5)
+    @time_in = @attendance
+  end
+
+  def time_out
+    @user = User.find(params[:id])
+    @attendance = @user.create_time_out
+    sleep rand(1..5)
+    @time_in = @attendance
+  end
+
   private
 
   def user_params

@@ -87,6 +87,15 @@ class User < ActiveRecord::Base
   	"#{self.first_name} #{self.last_name}"
   end
 
+  def create_time_in
+    Attendance.create(user_id: self.id, time_in: Time.zone.now)
+  end
+
+  def create_time_out
+    attendance = Attendance.where(time_in: Date.today.beginning_of_day..Date.today.end_of_day, user_id: self.id).first
+    attendance.update(time_out: Time.zone.now)
+  end
+
   def attendance_status
     attendance = Attendance.where(time_in: Date.today.beginning_of_day..Date.today.end_of_day, user_id: self.id).first
 

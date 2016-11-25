@@ -4,7 +4,7 @@
 
 .users.index{
 
-	.user {
+	.user{
 		font-size: 12px;
 	/*	color: #777;*/
 		display: inline-block;
@@ -17,7 +17,7 @@
 		border-bottom: 2px solid #222;
 		transition: all .3s ease-in-out;
 		overflow: hidden;
-		.image { 
+		.image{
 			margin: 0 auto;
 		  width: 100px;
 		  img{
@@ -33,7 +33,7 @@
 			margin-top: 10px;
 			}
 	}
-	.user:hover {
+	.user:hover{
 		border-bottom: 2px solid #F6B352;
 		box-shadow: 0 0 10px #888;
 		transform: scale(1.1);
