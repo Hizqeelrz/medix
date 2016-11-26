@@ -1,0 +1,23 @@
+h1 Listing expense_categories
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @expense_categories.each do |expense_category|
+      tr
+        td = expense_category.name
+        td = expense_category.description
+        td = link_to 'Show', expense_category
+        td = link_to 'Edit', edit_expense_category_path(expense_category)
+        td = link_to 'Destroy', expense_category, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Expense category', new_expense_category_path
