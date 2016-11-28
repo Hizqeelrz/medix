@@ -19,6 +19,10 @@
 
 class RawMaterial < ActiveRecord::Base
 	
+	include PgSearch
+	pg_search_scope :search_by_name, :against => [:name]
+
+
   belongs_to :raw_material_category
   has_many :product_ingrediants
   has_many :raw_material_invoice_items

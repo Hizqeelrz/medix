@@ -1,7 +1,9 @@
 class RawMaterialsController < ApplicationController
 
   def index
-  	@raw_materials = RawMaterial.all.page(params[:page]).per(20)
+    @categories = RawMaterialCategory.all
+  	@raw_materials = RawMaterial.all.order(created_at: :desc)
+    @raw_materials = search(@raw_materials).page(params[:page]).per(20)
   end
 
   def new
@@ -46,5 +48,16 @@ class RawMaterialsController < ApplicationController
 
   def material_params
   	params.require(:raw_material).permit(:name, :raw_material_category_id)
+  end
+
+  def search scope
+    scope = scope
+    if params[:query].presence
+      scope = scope.search_by_name(params[:query])
+    end
+    if params[:category].presence
+      scope = scope.where(raw_material_category_id: params[:category])
+    end
+    scope
   end
 end
