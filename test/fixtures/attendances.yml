@@ -3,7 +3,7 @@
 # Table name: attendances
 #
 #  time_in      :datetime
-#  time_out     :datetime
+#  time_out     :datetime         primary key
 #  on_leave     :boolean
 #  leave_reason :text
 #  approved_by  :integer
