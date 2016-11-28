@@ -1,6 +1,10 @@
 h1 Mark Attendances
 br
 
+= form_tag mark_attendance_path, method: :get, class: "form-inline" do
+	= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search....."
+	= submit_tag :submit, class: "btn btn-primary btn-sm"
+
 - @users.each do |user|
 	.attendance.text-center
 		.img = image_tag user.image.url(:thumb), width: "60px"
@@ -9,6 +13,9 @@ br
 			-	if user.attendance_status && user.attendance_status.time_out.blank?
 				= link_to "Leave", time_out_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'></i> Waiting...."}, class: "btn btn-danger"
 			- elsif user.attendance_status && !user.attendance_status.time_out.blank?
+				= link_to "Come", time_in_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'></i> Waiting...."}, class: "btn btn-success"				
 				div
 			- else
 				= link_to "Come", time_in_user_path(user), method: :patch, remote: true, data: {disable_with: "<i class='fa fa-refresh fa-spin'></i> Waiting...."}, class: "btn btn-success"
+
+.paginate = paginate @users				
