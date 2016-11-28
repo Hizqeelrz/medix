@@ -76,6 +76,9 @@ class RawMaterialInvoicesController < ApplicationController
 
     def search scope
       scope = scope
+      if params[:invoice_id].presence
+        scope = scope.where(id: params[:invoice_id])
+      end
       if params[:vendor_id].presence
         scope = scope.where(vendor_id: params[:vendor_id])
       end

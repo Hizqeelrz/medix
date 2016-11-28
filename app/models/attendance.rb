@@ -23,10 +23,6 @@
 #
 
 class Attendance < ActiveRecord::Base
-
-	include PgSearch
-	pg_search_scope :search_by_name_phone, :against => [:first_name, :last_name, :address, :phone, :mobile]
-
   belongs_to :user
 
   validates :time_in, :user_id, presence: true

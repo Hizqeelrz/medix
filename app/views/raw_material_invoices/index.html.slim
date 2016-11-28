@@ -6,6 +6,7 @@ br
 br
 
 = form_tag raw_material_invoices_path, method: :get, class: "form-inline" do
+  = text_field_tag :invoice_id, params[:invoice_id], class: "form-control", placeholder: "Invoice ID"
   = select_tag :vendor_id, options_from_collection_for_select(@vendors, "id", "name", params[:vendor_id]), class: "form-control", prompt: "Select Vendor"
   = submit_tag :submit, class: "btn btn-success"
 
